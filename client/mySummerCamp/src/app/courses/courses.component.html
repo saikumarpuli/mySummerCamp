@@ -1,3 +1,33 @@
-<p>
-  courses works!
-</p>
+
+<h3 align="right"><a routerLink="/courseDetails">add course</a></h3>
+
+<div class="container">
+  <h2>{{courses}} Details</h2>
+<div class="table-responsive">
+  <table class="table">
+    <tr scope="row">
+      <td style="width: 15%"><b>course name</b></td>
+      <td style="width: 15%"><b>course duration</b></td>
+      <td style="width: 20%"><b>course noOfDays</b></td>
+      <td style="width: 20%"><b>course Coach</b></td>
+      <td style="width: 20%"><b>course fee</b></td></tr>
+  </table>
+</div>
+  <div class="table-responsive">
+  <table class="table">
+    <span *ngFor="let course of data.courses">
+    <tr scope="row">
+      <td style="width: 20%">{{course.name}}</td>
+      <td style="width: 20%">{{course.duration}}</td>
+      <td style="width: 20%">{{course.noOfDays}}</td>
+      <td style="width: 20%">{{course.Coach}}</td>
+      <td style="width: 20%">{{course.fee}}</td>
+       <td><button (click)="Selectcourse(course)"> Enrol </button></td>
+      </tr>
+      </span>
+  </table>
+</div>
+</div>
+<app-course-enrol [details]="details"></app-course-enrol>
+
+
