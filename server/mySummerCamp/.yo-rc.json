@@ -1,0 +1,17 @@
+{
+  "generator-ng-fullstack": {
+    "appName": "mySummerCamp",
+    "username": "saikumar",
+    "userEmail": "saikumarpuli9@gmail.com",
+    "stack": "server",
+    "repoHostUrl": "github.com",
+    "userNameSpace": "saikumar",
+    "client": "",
+    "server": "node",
+    "nodeWebFrameworkServer": "express",
+    "transpilerServer": "babel",
+    "secure": false,
+    "testsSeparated": false,
+    "boilerplate": true
+  }
+}
