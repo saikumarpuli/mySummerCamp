@@ -1,4 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 
 // @ts-ignore
 @Component({
@@ -8,11 +9,13 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class CourseEnrolComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route :ActivatedRoute) { }
 
-  @Input()  public details:any ;
-
-  ngOnInit() {
-  }
+   public details:any ;
+   ngOnInit(): void {
+     this.route.queryParams.subscribe(params => {
+      this.details=params;
+    });
+    }
 
 }

@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Router, NavigationExtras} from '@angular/router';
 
 @Component({
   selector: 'app-courses',
@@ -10,7 +11,7 @@ export class CoursesComponent implements OnInit {
   private i: number;
   private position: number;
 
-  constructor() { }
+  constructor(private router: Router) { }
   data = {
     courses: [
       {
@@ -51,15 +52,15 @@ export class CoursesComponent implements OnInit {
   public details:any;
   courses = 'Courses';
 
-  Selectcourse(coursedata){
-    this.details=coursedata;
-  }
-
-  validateData(position : number){
-    this.position = position;
-
-  }
   ngOnInit() {
   }
+
+  navigate(event) {
+    let naigationExtras: NavigationExtras = {
+      queryParams: event
+    }
+    this.router.navigate(['/courseEnrol'], naigationExtras);
+  }
+
 
 }
