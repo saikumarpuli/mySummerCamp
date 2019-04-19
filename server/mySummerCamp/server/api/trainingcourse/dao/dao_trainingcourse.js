@@ -1,17 +1,17 @@
 import models from '../../../models'
 import Promise from 'bluebird'
-export default class CourseDao {
+export default class TrainingCourseDao {
   static getAll(){
     return new Promise((resolve,reject)=>{
-      models.course.findAll({})
+      models.trainingcourse.findAll({})
         .then(results=>resolve(results))
         .catch(error=>reject(error))
     })
   }
-
   static createNew(request){
     return new Promise((resolve,reject)=>{
-      models.course.create({name:request.name,description:request.description,duration:request.duration,noOfDays:request.noOfDays,
+      console.log("dao");
+      models.trainingcourse.create({name:request.name,description:request.description,duration:request.duration,noOfDays:request.noOfDays,
         Couch:request.Couch,fee:request.fee,timeslots:request.timeslots,noOfStudents:request.noOfStudents,availableSlots:request.availableSlots})
         .then(results=>resolve(results))
         .catch(error=>reject(error))
@@ -20,7 +20,7 @@ export default class CourseDao {
 
   static getbyid(id){
     return new Promise((resolve,reject)=>{
-      models.course.findAll({where:{id:id}})
+      models.trainingcourse.findAll({where:{id:id}})
         .then(results=>resolve(results))
         .catch(error=>reject(error))
     })
@@ -28,7 +28,7 @@ export default class CourseDao {
 
   static removebyid(id){
     return new Promise((resolve,reject)=>{
-      models.course.destroy({where: {id:id}})
+      models.trainingcourse.destroy({where: {id:id}})
         .then(results=>resolve(results))
         .catch(error=>reject(error))
     })
@@ -36,7 +36,7 @@ export default class CourseDao {
 
   static updatebyid(request,id){
     return new Promise((resolve,reject)=>{
-      models.course.update({name:request.name,description:request.description,duration:request.duration,noOfDays:request.noOfDays,
+      models.trainingcourse.update({name:request.name,description:request.description,duration:request.duration,noOfDays:request.noOfDays,
         Couch:request.Couch,fee:request.fee,timeslots:request.timeslots,noOfStudents:request.noOfStudents,availableSlots:request.availableSlots},
         {where:{id:id}})
         .then(results=>resolve(results))

@@ -5,6 +5,7 @@ import { CoursesComponent } from './courses/courses.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { CourseEnrolComponent } from './course-enrol/course-enrol.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
+import {QueryApi} from "./commonservice/request/QueryApi";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { CourseDetailsComponent } from './course-details/course-details.componen
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [QueryApi],
   bootstrap: [AppComponent]
 
 })
