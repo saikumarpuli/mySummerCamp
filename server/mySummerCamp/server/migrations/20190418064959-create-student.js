@@ -17,9 +17,6 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
-      course: {
-        type: Sequelize.STRING
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -32,8 +29,8 @@ module.exports = {
         type:Sequelize.INTEGER,
         references:{
           model: 'courses',
-          key:'id',
-        },
+          foreignkey:'id',
+         },
         onDelete:'cascade',
         onUpdate:'cascade'
       }
