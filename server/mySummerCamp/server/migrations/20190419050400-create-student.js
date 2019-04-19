@@ -17,6 +17,9 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
+      course: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -28,14 +31,12 @@ module.exports = {
       course_id:{
         type:Sequelize.INTEGER,
         references:{
-          model: 'courses',
-          foreignkey:'id',
-         },
-        onDelete:'cascade',
-        onUpdate:'cascade'
-      }
-
-
+          key:'id',
+          model:'courses',
+        },
+        onUpdate:'cascade',
+        onDelete:'cascade'
+      },
 
     });
   },
