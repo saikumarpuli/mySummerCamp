@@ -9,7 +9,7 @@ export default class StudentController {
   static createNew(req,res){
     StudentDao.createNew(req.body)
       .then(results=>res.status(200).json(results))
-      .catch(error=>res.stat(400).json(error))
+      .catch(error=>res.status(400).json(error))
   }
 
   static getbyid(req,res){
