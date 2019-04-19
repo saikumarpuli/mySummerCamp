@@ -31,9 +31,11 @@ module.exports = {
       trainingcourse_id:{
         type:Sequelize.INTEGER,
         references:{
-          key:'id',
-          model:'trainingcourses'
-        }
+          model:'trainingcourses',
+          foreignkey:'id'
+        },
+        onDelete:'cascade',
+        onUpdate:'cascade'
       }
     });
   },

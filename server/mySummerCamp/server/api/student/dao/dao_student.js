@@ -11,7 +11,7 @@ export default class StudentDao {
 
   static createNew(request){
     return new Promise((resolve,reject)=>{
-      models.student.create({firstName:request.firstName, lastName:request.lastName,email:request.email,course:request.course})
+      models.student.create({firstName:request.firstName, lastName:request.lastName,email:request.email,course:request.course,trainingcourse_id:request.trainingcourse_id})
         .then(results=>resolve(results))
         .catch(error=>reject(error))
     })
@@ -35,7 +35,7 @@ export default class StudentDao {
 
   static updatebyid(request,id){
     return new Promise((resolve,reject)=>{
-      models.student.update({firstName:request.firstName, lastName:request.lastName,email:request.email,course:request.course},{where:{id:id}})
+      models.student.update({firstName:request.firstName, lastName:request.lastName,email:request.email,course:request.course,trainingcourse_id:request.trainingcourse_id},{where:{id:id}})
         .then(results=>resolve(results))
         .catch(error=>reject(error))
     })
