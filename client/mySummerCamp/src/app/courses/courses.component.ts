@@ -15,7 +15,7 @@ export class CoursesComponent implements OnInit {
   data = {
     courses: [
       {
-        name:'java',
+        name:'Java',
         description:'Java is a programming language that produces software for multiple platforms.',
         duration : '1hour',
         noOfDays:'45days',
@@ -32,14 +32,14 @@ export class CoursesComponent implements OnInit {
       },
       {
         name:'MERN',
-        description:'Java is a programming language that produces software for multiple platforms.',
+        description:'MERN is a scaffolding tool which makes it easy to build universal apps using Mongo, Express, React, NodeJS, Redux and Webpack.',
         duration : '1hour',
         noOfDays:'60days',
         Coach:'Arun',
         fee:'2000Rs'
       },
       {
-        name:'javascript',
+        name:'Javascript',
         description:'JavaScript is a prototype-based, multi-paradigm, dynamic language, supporting object-oriented, imperative, and declarative (e.g. functional programming) styles.',
         duration : '1hour',
         noOfDays:'45days',
