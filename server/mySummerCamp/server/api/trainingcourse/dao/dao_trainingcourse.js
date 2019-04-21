@@ -12,7 +12,7 @@ export default class TrainingCourseDao {
     return new Promise((resolve,reject)=>{
       console.log("dao");
       models.trainingcourse.create({name:request.name,description:request.description,duration:request.duration,noOfDays:request.noOfDays,
-        Couch:request.Couch,fee:request.fee,timeslots:request.timeslots,noOfStudents:request.noOfStudents,availableSlots:request.availableSlots})
+        Couch:request.Couch,fee:request.fee})
         .then(results=>resolve(results))
         .catch(error=>reject(error))
     })
@@ -37,7 +37,7 @@ export default class TrainingCourseDao {
   static updatebyid(request,id){
     return new Promise((resolve,reject)=>{
       models.trainingcourse.update({name:request.name,description:request.description,duration:request.duration,noOfDays:request.noOfDays,
-        Couch:request.Couch,fee:request.fee,timeslots:request.timeslots,noOfStudents:request.noOfStudents,availableSlots:request.availableSlots},
+        Couch:request.Couch,fee:request.fee},
         {where:{id:id}})
         .then(results=>resolve(results))
         .catch(error=>reject(error))

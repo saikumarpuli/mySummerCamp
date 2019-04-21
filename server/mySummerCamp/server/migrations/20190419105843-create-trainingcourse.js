@@ -26,15 +26,6 @@ module.exports = {
       fee: {
         type: Sequelize.INTEGER
       },
-      timeslots: {
-        type: Sequelize.STRING
-      },
-      noOfStudents: {
-        type: Sequelize.INTEGER
-      },
-      availableSlots: {
-        type: Sequelize.STRING
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
