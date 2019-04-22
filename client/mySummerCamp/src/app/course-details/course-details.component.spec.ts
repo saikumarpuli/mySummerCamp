@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CourseDetailsComponent } from './course-details.component';
+// @ts-ignore
+import {describe,beforeEach,it,expect} from 'jasmine';
 
 describe('CourseDetailsComponent', () => {
   let component: CourseDetailsComponent;

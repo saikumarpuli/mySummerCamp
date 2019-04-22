@@ -1,41 +1,61 @@
 <div class="container">
 <div class="table-responsive">
-  <table class="table">
+    <table class="table">
     <h3><b>Course Details</b></h3>
-    <tr>  <td><b>name:</b></td><td>{{details.name}}</td></tr>
-     <tr>  <td><b>description:</b></td><td>{{details.description}}</td></tr>
-     <tr>  <td><b>duration:</b> </td><td>{{details.duration}}</td></tr>
-     <tr>  <td><b>noOfDays:</b></td><td>{{details.noOfDays}}</td></tr>
+    <tr>  <td><b>Name:</b></td><td>{{details.name}}</td></tr>
+     <tr>  <td><b>Description:</b></td><td>{{details.description}}</td></tr>
+     <tr>  <td><b>Duration:</b> </td><td>{{details.duration}}</td></tr>
+     <tr>  <td><b>NoOfDays:</b></td><td>{{details.noOfDays}}</td></tr>
      <tr>  <td><b>Coach:</b></td><td>{{details.Coach}}</td></tr>
-     <tr>  <td><b>fee:</b></td><td>{{details.fee}}</td></tr>
+     <tr>  <td><b>Fee:</b></td><td>{{details.fee}}</td></tr>
   </table>
 </div>
 </div>
 
 
-<div class="container">
-  <h3><b>Course Registraion page</b></h3>
 
-  <form>
-<div class="form-group">
-  <label>Course name :</label>
-  <label>{{details.name}}</label>
-</div>
+   <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h3>Course Registration form</h3>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label>CourseName</label>
+            <input type="text" formControlName="coursename" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.coursename.errors }" />
+            <div *ngIf="submitted && !!f.coursename.errors" class="invalid-feedback">
+              <div *ngIf="!!f.coursename.errors.required">coursename is required</div>
+             </div>
+          </div>
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+            <div *ngIf="submitted && !!f.firstName.errors" class="invalid-feedback">
+              <div *ngIf="!!f.firstName.errors.required">First Name is required</div>
 
-  <div class="form-group">
-    <label for="firstname">First name:</label>
-    <input type="text" class="form-control" id="firstname" required="required">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+            <div *ngIf="submitted &&!! f.lastName.errors" class="invalid-feedback">
+              <div *ngIf="!!f.lastName.errors.required">Last Name is required</div>
+
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+            <div *ngIf="submitted && !!f.email.errors" class="invalid-feedback">
+              <div *ngIf="!!f.email.errors.required">Email is required</div>
+              <div *ngIf="!!f.email.errors.email">Email must be a valid email address</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button class="btn btn-primary">Register</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 
-  <div class="form-group">
-    <label for="lastname">Last name:</label>
-    <input type="text" class="form-control" id="lastname" required="required">
-  </div>
-
-  <div class="form-group">
-    <label for="email">Email:</label>
-    <input type="email" class="form-control" id="email" required="required">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-</div>
