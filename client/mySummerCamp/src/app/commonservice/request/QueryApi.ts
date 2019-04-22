@@ -11,6 +11,7 @@ export class QueryApi {
   doGet(url: any, params: any) {
     //alert(params +'==>' + url)
     url = UserEndPoint(url, params);
+    console.log("1111111111111111",url)
     //alert('<-->'+url)
     return this.http.get(url, params);
   }

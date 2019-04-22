@@ -7,6 +7,7 @@ import { CourseEnrolComponent } from './course-enrol/course-enrol.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import {QueryApi} from "./commonservice/request/QueryApi";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -18,9 +19,10 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
   imports: [
     BrowserModule,
     AppRoutingModule,
-     ReactiveFormsModule,
-    FormsModule
-  ],
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule,
+   ],
   providers: [QueryApi],
   bootstrap: [AppComponent]
 

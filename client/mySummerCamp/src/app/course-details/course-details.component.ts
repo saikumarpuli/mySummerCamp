@@ -17,7 +17,7 @@ export class CourseDetailsComponent implements OnInit {
        description: ['', Validators.required],
        duration: ['', [Validators.required]],
        noOfDays: ['', [Validators.required]],
-       coach: ['', Validators.required],
+       Coach: ['', Validators.required],
        fee: ['', Validators.required],
      });
    }

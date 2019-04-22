@@ -8,15 +8,18 @@ import { of } from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
-export class CourseDetailsService {
+export class CourseService {
 
   constructor(private http: HttpClient, private queryApi:QueryApi) { }
 
-  getCourseDetails(params):Observable<any>{
-     return this.queryApi.doGet('',params)
+  getCourseDetails():Observable<any>{
+    let params;
+    console.log("&&&&&&&&&&&&&i am in service&&&&&&&&&&&&&&&&&&&&")
+    return this.queryApi.doGet('COURSEDETAILS',params)
       .pipe(
         catchError(err => of([err]))
       );
   }
+
 
 }

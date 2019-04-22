@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router, NavigationExtras} from '@angular/router';
-
+import {CourseService} from "../course.service"
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
@@ -8,11 +8,10 @@ import {Router, NavigationExtras} from '@angular/router';
 })
 export class CoursesComponent implements OnInit {
   title = 'mySummerCamp';
-  private i: number;
-  private position: number;
+  public courses: any;
 
-  constructor(private router: Router) { }
-  data = {
+  constructor(private router: Router,private service:CourseService) { }
+ /* data = {
     courses: [
       {
         name:'Java',
@@ -51,10 +50,19 @@ export class CoursesComponent implements OnInit {
 
   public details:any;
   courses = 'Courses';
+*/
+ ngOnInit() {
+   this.getdata()
 
-  ngOnInit() {
+ }
+
+  getdata() {
+    this.service.getCourseDetails().subscribe((response) => {
+      console.log(response);
+      this.courses = response;
+      console.log(this.courses.description)
+    })
   }
-
   navigate(event) {
     let naigationExtras: NavigationExtras = {
       queryParams: event

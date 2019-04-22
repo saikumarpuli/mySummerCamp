@@ -1,25 +1,25 @@
 <div class="container">
 <h2 align="right">  <button type="submit" class="btn btn-light"><a routerLink="/courseDetails">Add Course</a></button></h2>
 
-  <h2>{{courses}} Details</h2>
+  <h2>Course Details</h2>
 <div class="table-responsive">
   <table class="table">
     <tr scope="row">
       <td style="width: 15%"><b>Name</b></td>
-      <td style="width: 15%"><b>Duration</b></td>
+      <td style="width: 15%"><b>Duration(Hrs)</b></td>
       <td style="width: 20%"><b>Number Of Days</b></td>
-      <td style="width: 20%"><b>Coach</b></td>
-      <td style="width: 20%"><b>Fee</b></td></tr>
+      <td style="width: 20%"><b>Couch</b></td>
+      <td style="width: 20%"><b>Fee(Rs)</b></td></tr>
   </table>
 </div>
   <div class="table-responsive">
   <table class="table">
-    <span *ngFor="let course of data.courses">
+    <span *ngFor="let course of courses">
     <tr scope="row">
       <td style="width: 20%">{{course.name}}</td>
       <td style="width: 20%">{{course.duration}}</td>
       <td style="width: 20%">{{course.noOfDays}}</td>
-      <td style="width: 20%">{{course.Coach}}</td>
+      <td style="width: 20%">{{course.Couch}}</td>
       <td style="width: 20%">{{course.fee}}</td>
       <td><button (click)="navigate(course)">Enrol</button></td>
       </tr>
@@ -27,5 +27,3 @@
   </table>
 </div>
 </div>
-
-
