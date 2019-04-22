@@ -1,7 +1,7 @@
 <div class="container">
   <div class="form-group">
 
-      <form [formGroup]="AddCourseForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="AddCourseForm" (ngSubmit)="onSubmit(AddCourseForm.value)">
       <div ><h3><b>Add Course Details</b></h3></div>
 
 

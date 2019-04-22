@@ -15,6 +15,13 @@ export class QueryApi {
     //alert('<-->'+url)
     return this.http.get(url, params);
   }
+
+  doPost(url: any, params: any) {
+    url = UserEndPoint(url, params);
+
+    return this.http.post(url, params );
+  }
+
 }
 
 

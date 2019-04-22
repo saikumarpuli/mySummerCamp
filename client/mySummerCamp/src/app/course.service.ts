@@ -20,6 +20,12 @@ export class CourseService {
         catchError(err => of([err]))
       );
   }
-
+  postCourseDetails(params):Observable<any>{
+    console.log("object in service-----",params)
+    return this.queryApi.doPost('POSTSPOST',params)
+      .pipe(
+        catchError(err => of([err]))
+      );
+  }
 
 }
