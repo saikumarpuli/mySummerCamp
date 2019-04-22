@@ -3,16 +3,47 @@ import {UserEndPoint} from './../../commonservice/request/userEndPoint';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()
-export class QueryApi{
-  constructor(private http : HttpClient){
+export class QueryApi {
+  constructor(private http: HttpClient) {
 
   }
+
   doGet(url: any, params: any) {
     //alert(params +'==>' + url)
     url = UserEndPoint(url, params);
     //alert('<-->'+url)
-    return this.http.get(url, params );
+    return this.http.get(url, params);
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   /*doPost(url: any, params: any) {
     url = UserEndPoint(url, params);
     console.log("obh",params);
@@ -29,4 +60,4 @@ export class QueryApi{
     console.log(url);
     return this.http.put(url, params);
   }*/
-}
+
