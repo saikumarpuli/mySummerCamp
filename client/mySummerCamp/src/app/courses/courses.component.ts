@@ -60,8 +60,7 @@ export class CoursesComponent implements OnInit {
     this.service.getCourseDetails().subscribe((response) => {
       console.log(response);
       this.courses = response;
-      console.log(this.courses.description)
-    })
+     })
   }
   navigate(event) {
     let naigationExtras: NavigationExtras = {

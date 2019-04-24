@@ -18,7 +18,8 @@ export class QueryApi {
 
   doPost(url: any, params: any) {
     url = UserEndPoint(url, params);
-
+    console.log("--------------",params)
+console.log("url in query api-----------",url)
     return this.http.post(url, params );
   }
 

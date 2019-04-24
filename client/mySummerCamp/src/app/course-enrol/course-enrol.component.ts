@@ -45,7 +45,7 @@ export class CourseEnrolComponent implements OnInit {
        return;
      }
 
-     if ((this.registerForm.value.coursename.toLocaleLowerCase()).localeCompare(this.details.name.toLocaleLowerCase()) == 0) {
+    /* if ((this.registerForm.value.coursename.toLocaleLowerCase()).localeCompare(this.details.name.toLocaleLowerCase()) == 0) {
        this.postCourseDetails(this.coursedata)
        location.reload();     } else {
        alert("Course name should be selected one");
@@ -56,5 +56,5 @@ export class CourseEnrolComponent implements OnInit {
   this.service.postCourseDetails(formdata).subscribe(users=>{
     console.log(users);
   });
-}
+*/}
  }

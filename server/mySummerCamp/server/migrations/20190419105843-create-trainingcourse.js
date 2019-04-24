@@ -20,7 +20,7 @@ module.exports = {
       noOfDays: {
         type: Sequelize.INTEGER
       },
-      Couch: {
+      Coach: {
         type: Sequelize.STRING
       },
       fee: {

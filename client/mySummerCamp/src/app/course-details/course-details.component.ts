@@ -9,7 +9,7 @@ import {CourseService} from "../course.service";
 export class CourseDetailsComponent implements OnInit {
    AddCourseForm: FormGroup;
    submitted = false;
-   private coursedata: any;
+   public coursedata: any;
 
    constructor(private formBuilder: FormBuilder, private service: CourseService) {
    }
@@ -20,7 +20,7 @@ export class CourseDetailsComponent implements OnInit {
        description: ['', Validators.required],
        duration: ['', [Validators.required]],
        noOfDays: ['', [Validators.required]],
-       couch: ['', Validators.required],
+       Coach: ['', Validators.required],
        fee: ['', Validators.required],
      });
    }
@@ -33,18 +33,15 @@ export class CourseDetailsComponent implements OnInit {
 
    onSubmit(value) {
      this.submitted = true;
-     this.coursedata = value
-
+     this.coursedata = value;
      // stop here if form is invalid
+     console.log(value)
      if (this.AddCourseForm.invalid) {
        return;
      }
-
-     if ((this.AddCourseForm.value.coursename.toLocaleLowerCase()).localeCompare(this.details.name.toLocaleLowerCase()) == 0) {
+     else{
        this.postCourseDetails(this.coursedata)
-       location.reload();
-     } else {
-       alert("Course name should be selected one");
+       // location.reload();
      }
    }
 

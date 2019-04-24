@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.STRING,
     duration: DataTypes.INTEGER,
     noOfDays: DataTypes.NUMBER,
-    Couch: DataTypes.STRING,
+    Coach: DataTypes.STRING,
     fee: DataTypes.NUMBER,
   }, {});
   trainingcourse.associate = function(models) {
