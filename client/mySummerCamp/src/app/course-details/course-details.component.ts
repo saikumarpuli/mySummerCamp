@@ -34,21 +34,17 @@ export class CourseDetailsComponent implements OnInit {
    onSubmit(value) {
      this.submitted = true;
      this.coursedata = value;
-     // stop here if form is invalid
-     console.log(value)
-     if (this.AddCourseForm.invalid) {
+      if (this.AddCourseForm.invalid) {
        return;
      }
      else{
-       this.postCourseDetails(this.coursedata)
-       // location.reload();
+       this.postCourseDetails(this.coursedata);
+       alert(value.name + "course added sucessfully");
      }
    }
 
    postCourseDetails(formdata) {
-     //console.log("------------------",formdata)
-     this.service.postCourseDetails(formdata).subscribe(users => {
-       console.log(users);
-     });
+      this.service.postCourseDetails(formdata).subscribe(users => {
+      });
    }
  }
