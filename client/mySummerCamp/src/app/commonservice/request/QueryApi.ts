@@ -9,18 +9,13 @@ export class QueryApi {
   }
 
   doGet(url: any, params: any) {
-    //alert(params +'==>' + url)
-    url = UserEndPoint(url, params);
-    console.log("1111111111111111",url)
-    //alert('<-->'+url)
-    return this.http.get(url, params);
+     url = UserEndPoint(url, params);
+      return this.http.get(url, params);
   }
 
   doPost(url: any, params: any) {
     url = UserEndPoint(url, params);
-    console.log("--------------",params)
-console.log("url in query api-----------",url)
-    return this.http.post(url, params );
+      return this.http.post(url, params );
   }
 
 }
