@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import { Validators } from '@angular/forms';
-import {CourseService} from "../course.service";
+import {StudentService} from "../student.service";
 
 
  @Component({
@@ -14,9 +14,9 @@ export class CourseEnrolComponent implements OnInit {
    public details: any;
    registerForm: FormGroup;
    submitted = false;
-   private coursedata: any;
+   private studentdata: any;
 
-   constructor(private route: ActivatedRoute, private formBuilder: FormBuilder,private service:CourseService) {
+   constructor(private route: ActivatedRoute, private formBuilder: FormBuilder,private service:StudentService) {
    }
 
    ngOnInit() {
@@ -24,7 +24,7 @@ export class CourseEnrolComponent implements OnInit {
        this.details = params;
      });
      this.registerForm = this.formBuilder.group({
-       coursename: ['', [Validators.required]],
+       course: ['', [Validators.required]],
        firstName: ['', Validators.required],
        lastName: ['', Validators.required],
        email: ['', [Validators.required, Validators.email]],
@@ -38,22 +38,24 @@ export class CourseEnrolComponent implements OnInit {
 
    onSubmit(value) {
      this.submitted = true;
-     this.coursedata = value
-
-     // stop here if form is invalid
+     this.studentdata = value
+      // stop here if form is invalid
      if (this.registerForm.invalid) {
-       return;
+        return;
      }
 
-     if ((this.registerForm.value.coursename.toLocaleLowerCase()).localeCompare(this.details.name.toLocaleLowerCase()) == 0) {
-       this.postCourseDetails(this.coursedata)
-       location.reload();     } else {
+     else if ((this.registerForm.value.course.toLocaleLowerCase()).localeCompare(this.details.name.toLocaleLowerCase()) == 0) {
+       this.postStudentDetails(this.studentdata);
+       console.log(this.studentdata);
+       alert(value.firstName + "  Enrolled sucessfully");
+       location.reload();
+      }
+     else {
        alert("Course name should be selected one");
      }
    }
-   postCourseDetails(formdata){
-  //console.log("------------------",formdata)
-  this.service.postCourseDetails(formdata).subscribe(users=>{
+   postStudentDetails(formdata){
+   this.service.PostStudentDetails(formdata).subscribe(users=>{
     console.log(users);
   });
 }

@@ -7,7 +7,7 @@
 
         <div class="form-group">
           <label>Name:</label>
-          <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+          <input type="text" placeholder="Course name" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
           <div *ngIf="submitted && !!f.name.errors" class="invalid-feedback">
             <div *ngIf="!!f.name.errors.required">name is required</div>
           </div>
@@ -16,7 +16,7 @@
 
         <div class="form-group">
           <label>Description:</label>
-          <input type="text" formControlName="description" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.description.errors }" />
+          <input type="text" placeholder="Description" formControlName="description" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.description.errors }" />
           <div *ngIf="submitted && !!f.description.errors" class="invalid-feedback">
             <div *ngIf="!!f.description.errors.required">description is required</div>
           </div>
@@ -26,7 +26,7 @@
 
         <div class="form-group">
           <label>Duration(hrs):</label>
-          <input type="number" formControlName="duration" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.duration.errors }" />
+          <input type="number" placeholder="  Duration" formControlName="duration" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.duration.errors }" />
           <div *ngIf="submitted && !!f.duration.errors" class="invalid-feedback">
             <div *ngIf="!!f.duration.errors.required">duration is required</div>
           </div>
@@ -36,7 +36,7 @@
 
         <div class="form-group">
           <label>Number of days:</label>
-          <input type="number" formControlName="noOfDays" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.noOfDays.errors }" />
+          <input type="number" placeholder="Number Of Days" formControlName="noOfDays" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.noOfDays.errors }" />
           <div *ngIf="submitted && !!f.noOfDays.errors" class="invalid-feedback">
             <div *ngIf="!!f.noOfDays.errors.required">Number of days is required</div>
           </div>
@@ -45,7 +45,7 @@
 
         <div class="form-group">
           <label>Coach:</label>
-          <input type="text" formControlName="Coach" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Coach.errors }" />
+          <input type="text" placeholder="  Coach" formControlName="Coach" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Coach.errors }" />
           <div *ngIf="submitted && !!f.Coach.errors" class="invalid-feedback">
             <div *ngIf="!!f.Coach.errors.required">Coach is required</div>
           </div>
@@ -54,7 +54,7 @@
 
         <div class="form-group">
           <label>Fee(Rs):</label>
-          <input type="number" formControlName="fee" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fee.errors }" />
+          <input type="number" placeholder="  Fee" formControlName="fee" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fee.errors }" />
           <div *ngIf="submitted && !!f.fee.errors" class="invalid-feedback">
             <div *ngIf="!!f.fee.errors.required">fee is required</div>
           </div>

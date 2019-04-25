@@ -14,15 +14,14 @@ export class CourseService {
 
   getCourseDetails():Observable<any>{
     let params;
-    console.log("&&&&&&&&&&&&&i am in service&&&&&&&&&&&&&&&&&&&&")
-    return this.queryApi.doGet('COURSEDETAILS',params)
+     return this.queryApi.doGet('COURSEDETAILS',params)
       .pipe(
         catchError(err => of([err]))
       );
   }
   postCourseDetails(params):Observable<any>{
     console.log("object in service-----",params)
-    return this.queryApi.doPost('POSTSPOST',params)
+    return this.queryApi.doPost('POSTCOURSE',params)
       .pipe(
         catchError(err => of([err]))
       );

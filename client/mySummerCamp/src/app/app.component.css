@@ -1,5 +1,5 @@
 #footer {
-  background-color: black;
+  background-color: aqua;
   width: 100%;
   color: white;
   text-align: center;
@@ -11,4 +11,7 @@
 .container-fluid{
   margin-top: 50px;
   padding-top: 50px;
+}
+.color{
+  background-color: aqua;
 }

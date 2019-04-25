@@ -39,7 +39,7 @@ export class CourseDetailsComponent implements OnInit {
      }
      else{
        this.postCourseDetails(this.coursedata);
-       alert(value.name + "course added sucessfully");
+       alert(value.name + " course added sucessfully");
      }
    }
 
