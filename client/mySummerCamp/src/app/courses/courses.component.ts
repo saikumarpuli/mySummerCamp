@@ -8,6 +8,7 @@ import {CourseService} from "../course.service"
 })
 export class CoursesComponent implements OnInit {
    public courses: any;
+  p: number;
   constructor(private router: Router,private service:CourseService) { }
  ngOnInit() {
    this.getdata()

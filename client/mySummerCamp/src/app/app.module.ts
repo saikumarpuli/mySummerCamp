@@ -9,6 +9,7 @@ import {QueryApi} from "./commonservice/request/QueryApi";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {NgFlashMessagesModule} from "ng-flash-messages";
+import {NgxPaginationModule} from "ngx-pagination";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {NgFlashMessagesModule} from "ng-flash-messages";
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    NgFlashMessagesModule.forRoot()
+    NgFlashMessagesModule.forRoot(),
+    NgxPaginationModule
 
   ],
   providers: [QueryApi],

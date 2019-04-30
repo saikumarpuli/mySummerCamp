@@ -14,7 +14,7 @@
     </thead>
 
   <tbody>
-      <tr  *ngFor="let course of courses">
+      <tr  *ngFor="let course of courses | paginate: { itemsPerPage: 5, currentPage: p }">
       <td>{{course.name}}</td>
       <td>{{course.duration}}</td>
       <td>{{course.noOfDays}}</td>
@@ -22,6 +22,7 @@
       <td>{{course.fee}}</td>
       <td><button (click)="navigate(course)">Enrol</button></td>
       </tr>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </tbody>
   </table>
 </div>
