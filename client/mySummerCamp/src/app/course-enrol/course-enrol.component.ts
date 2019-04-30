@@ -16,7 +16,6 @@ export class CourseEnrolComponent implements OnInit {
    registerForm: FormGroup;
    submitted = false;
    private studentdata: any;
-
    constructor(private route: ActivatedRoute, private formBuilder: FormBuilder,private service:StudentService,private ngFlashMessageService: NgFlashMessageService) {
    }
 
