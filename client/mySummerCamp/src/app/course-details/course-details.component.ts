@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder,FormGroup, Validators} from "@angular/forms";
 import {CourseService} from "../course.service";
+import {NgFlashMessageService} from "ng-flash-messages";
  @Component({
   selector: 'app-course-details',
   templateUrl: './course-details.component.html',
@@ -11,7 +12,7 @@ export class CourseDetailsComponent implements OnInit {
    submitted = false;
    public coursedata: any;
 
-   constructor(private formBuilder: FormBuilder, private service: CourseService) {
+   constructor(private formBuilder: FormBuilder, private service: CourseService,private ngFlashMessageService: NgFlashMessageService) {
    }
 
    ngOnInit() {
@@ -39,8 +40,13 @@ export class CourseDetailsComponent implements OnInit {
      }
      else{
        this.postCourseDetails(this.coursedata);
-       alert(value.name + " course added sucessfully");
-     }
+        this.ngFlashMessageService.showFlashMessage({
+           messages: [value.name + " course added sucessfully"],
+           dismissible: true,
+           timeout: 5000,
+           type: 'success'
+        });
+      }
    }
 
    postCourseDetails(formdata) {

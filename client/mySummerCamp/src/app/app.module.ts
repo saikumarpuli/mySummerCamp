@@ -8,6 +8,7 @@ import { CourseDetailsComponent } from './course-details/course-details.componen
 import {QueryApi} from "./commonservice/request/QueryApi";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import {NgFlashMessagesModule} from "ng-flash-messages";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import {HttpClientModule} from "@angular/common/http";
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-   ],
+    NgFlashMessagesModule.forRoot()
+
+  ],
   providers: [QueryApi],
   bootstrap: [AppComponent]
 

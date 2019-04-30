@@ -17,6 +17,8 @@
    <div class="container">
     <div class="row">
       <div class="col-md-6 offset-md-3">
+        <ng-flash-message></ng-flash-message>
+
         <h3>Course Registration form</h3>
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
           <div class="form-group">

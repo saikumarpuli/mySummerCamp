@@ -3,6 +3,7 @@ import {ActivatedRoute} from "@angular/router";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import { Validators } from '@angular/forms';
 import {StudentService} from "../student.service";
+import {NgFlashMessageService} from "ng-flash-messages";
 
 
  @Component({
@@ -11,12 +12,12 @@ import {StudentService} from "../student.service";
   styleUrls: ['./course-enrol.component.css']
 })
 export class CourseEnrolComponent implements OnInit {
-   public details: any;
+    public details: any;
    registerForm: FormGroup;
    submitted = false;
    private studentdata: any;
 
-   constructor(private route: ActivatedRoute, private formBuilder: FormBuilder,private service:StudentService) {
+   constructor(private route: ActivatedRoute, private formBuilder: FormBuilder,private service:StudentService,private ngFlashMessageService: NgFlashMessageService) {
    }
 
    ngOnInit() {
@@ -28,6 +29,7 @@ export class CourseEnrolComponent implements OnInit {
        firstName: ['', Validators.required],
        lastName: ['', Validators.required],
        email: ['', [Validators.required, Validators.email]],
+       trainingcourse_id:[this.details.id]
      });
    }
 
@@ -38,25 +40,31 @@ export class CourseEnrolComponent implements OnInit {
 
    onSubmit(value) {
      this.submitted = true;
-     this.studentdata = value
-      // stop here if form is invalid
+     this.studentdata = value;
      if (this.registerForm.invalid) {
         return;
      }
 
      else if ((this.registerForm.value.course.toLocaleLowerCase()).localeCompare(this.details.name.toLocaleLowerCase()) == 0) {
        this.postStudentDetails(this.studentdata);
-       console.log(this.studentdata);
-       alert(value.firstName + "  Enrolled sucessfully");
-       location.reload();
-      }
+        this.ngFlashMessageService.showFlashMessage({
+          messages: [value.firstName + "  Enrolled sucessfully"],
+          dismissible: true,
+          timeout: 5000,
+          type:'success'
+     });
+     }
      else {
-       alert("Course name should be selected one");
+       this.ngFlashMessageService.showFlashMessage({
+          messages: ["Course name should be selected one"],
+          dismissible: true,
+          timeout: 5000,
+          type: 'danger'
+       });
      }
    }
    postStudentDetails(formdata){
    this.service.PostStudentDetails(formdata).subscribe(users=>{
-    console.log(users);
   });
-}
+   }
  }
