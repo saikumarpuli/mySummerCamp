@@ -24,37 +24,7 @@ export class QueryApi {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /*doPost(url: any, params: any) {
-    url = UserEndPoint(url, params);
-    console.log("obh",params);
-    //alert('>>--->'+url);
-    return this.http.post(url, params );
-  }
-
+  /*
   doDelete(url: any, params: any) {
     url = UserEndPoint(url, params);
     return this.http.delete(url, params);

@@ -1,6 +1,6 @@
 <div class="container">
 <h2 align="right">  <button type="submit" class="btn btn-light"><a routerLink="/courseDetails">Add Course</a></button></h2>
-
+  <input class="form-control" type="text" name="search"  [(ngModel)]="search" autocomplete="off" placeholder="search here for course ">
   <h2>Course Details</h2>
    <table class="table table-hover">
     <thead id="thead">
@@ -14,7 +14,7 @@
     </thead>
 
   <tbody>
-      <tr  *ngFor="let course of courses | paginate: { itemsPerPage: 5, currentPage: p }">
+      <tr  *ngFor="let course of courses |filter:search| paginate: { itemsPerPage: 5, currentPage: p }">
       <td>{{course.name}}</td>
       <td>{{course.duration}}</td>
       <td>{{course.noOfDays}}</td>

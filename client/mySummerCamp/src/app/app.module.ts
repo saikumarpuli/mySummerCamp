@@ -10,13 +10,17 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {NgFlashMessagesModule} from "ng-flash-messages";
 import {NgxPaginationModule} from "ngx-pagination";
+import {FilterPipeModule} from "ngx-filter-pipe";
+import { HeaderComponent } from './header/header.component';
+import {Ng2SearchPipeModule} from "ng2-search-filter";
 
 @NgModule({
   declarations: [
     AppComponent,
     CoursesComponent,
     CourseEnrolComponent,
-    CourseDetailsComponent
+    CourseDetailsComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,9 @@ import {NgxPaginationModule} from "ngx-pagination";
     HttpClientModule,
     FormsModule,
     NgFlashMessagesModule.forRoot(),
-    NgxPaginationModule
+    NgxPaginationModule,
+    FilterPipeModule,
+    Ng2SearchPipeModule
 
   ],
   providers: [QueryApi],
