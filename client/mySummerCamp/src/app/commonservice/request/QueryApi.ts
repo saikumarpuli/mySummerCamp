@@ -20,10 +20,6 @@ export class QueryApi {
 
 }
 
-
-
-
-
   /*
   doDelete(url: any, params: any) {
     url = UserEndPoint(url, params);

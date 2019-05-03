@@ -11,8 +11,14 @@ export class StudentService {
 
   constructor(private http: HttpClient, private queryApi:QueryApi) { }
   PostStudentDetails(params):Observable<any>{
-    console.log("object in service-----",params)
-    return this.queryApi.doPost('POSTSTUDENT',params)
+     return this.queryApi.doPost('POSTSTUDENT',params)
+      .pipe(
+        catchError(err => of([err]))
+      );
+  }
+  getStudentDetails():Observable<any>{
+    let params;
+    return this.queryApi.doGet('POSTSTUDENT',params)
       .pipe(
         catchError(err => of([err]))
       );

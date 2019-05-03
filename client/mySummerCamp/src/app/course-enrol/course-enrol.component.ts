@@ -4,8 +4,6 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import { Validators } from '@angular/forms';
 import {StudentService} from "../student.service";
 import {NgFlashMessageService} from "ng-flash-messages";
-
-
  @Component({
   selector: 'app-course-enrol',
   templateUrl: './course-enrol.component.html',
@@ -18,7 +16,6 @@ export class CourseEnrolComponent implements OnInit {
    private studentdata: any;
    constructor(private route: ActivatedRoute, private formBuilder: FormBuilder,private service:StudentService,private ngFlashMessageService: NgFlashMessageService) {
    }
-
    ngOnInit() {
      this.route.queryParams.subscribe(params => {
        this.details = params;
@@ -31,7 +28,6 @@ export class CourseEnrolComponent implements OnInit {
        trainingcourse_id:[this.details.id]
      });
    }
-
    // convenience getter for easy access to form fields
    get f() {
      return this.registerForm.controls;

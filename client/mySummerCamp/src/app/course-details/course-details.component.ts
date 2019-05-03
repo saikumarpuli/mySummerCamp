@@ -11,10 +11,8 @@ export class CourseDetailsComponent implements OnInit {
    AddCourseForm: FormGroup;
    submitted = false;
    public coursedata: any;
-
    constructor(private formBuilder: FormBuilder, private service: CourseService,private ngFlashMessageService: NgFlashMessageService) {
    }
-
    ngOnInit() {
      this.AddCourseForm = this.formBuilder.group({
        name: ['', Validators.required],
@@ -25,13 +23,10 @@ export class CourseDetailsComponent implements OnInit {
        fee: ['', Validators.required],
      });
    }
-
    // convenience getter for easy access to form fields
    get f() {
      return this.AddCourseForm.controls;
    }
-
-
    onSubmit(value) {
      this.submitted = true;
      this.coursedata = value;
@@ -48,7 +43,6 @@ export class CourseDetailsComponent implements OnInit {
         });
       }
    }
-
    postCourseDetails(formdata) {
       this.service.postCourseDetails(formdata).subscribe(users => {
       });

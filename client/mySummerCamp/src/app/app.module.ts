@@ -13,6 +13,7 @@ import {NgxPaginationModule} from "ngx-pagination";
 import {FilterPipeModule} from "ngx-filter-pipe";
 import { HeaderComponent } from './header/header.component';
 import {Ng2SearchPipeModule} from "ng2-search-filter";
+import { StudentdetailsComponent } from './studentdetails/studentdetails.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {Ng2SearchPipeModule} from "ng2-search-filter";
     CoursesComponent,
     CourseEnrolComponent,
     CourseDetailsComponent,
-    HeaderComponent
+    HeaderComponent,
+    StudentdetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,6 @@ import {Ng2SearchPipeModule} from "ng2-search-filter";
     NgxPaginationModule,
     FilterPipeModule,
     Ng2SearchPipeModule
-
   ],
   providers: [QueryApi],
   bootstrap: [AppComponent]

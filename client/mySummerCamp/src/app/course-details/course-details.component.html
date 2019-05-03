@@ -16,7 +16,7 @@
 
         <div class="form-group">
           <label>Description:</label>
-          <input type="text" placeholder="Description" formControlName="description" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.description.errors }" />
+          <input type="text" placeholder="Description" formControlName="description"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.description.errors }" />
           <div *ngIf="submitted && !!f.description.errors" class="invalid-feedback">
             <div *ngIf="!!f.description.errors.required">description is required</div>
           </div>
