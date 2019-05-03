@@ -1,0 +1,20 @@
+<h2>Students Details</h2>
+<table class="table table-hover">
+  <thead id="thead">
+  <tr >
+    <th><b>Course</b></th>
+    <th><b>First name</b></th>
+    <th><b>Last name</b></th>
+    <th><b>Email</b></th></tr>
+  </thead>
+
+  <tbody>
+  <tr  *ngFor="let student of students | paginate: { itemsPerPage: 4, currentPage: p }">
+    <td>{{student.course}}</td>
+    <td>{{student.firstName}}</td>
+    <td>{{student.lastName}}</td>
+    <td>{{student.email}}</td>
+   </tr>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </tbody>
+</table>
