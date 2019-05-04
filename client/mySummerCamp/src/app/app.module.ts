@@ -37,6 +37,5 @@ import { StudentdetailsComponent } from './studentdetails/studentdetails.compone
   ],
   providers: [QueryApi],
   bootstrap: [AppComponent]
-
 })
 export class AppModule { }

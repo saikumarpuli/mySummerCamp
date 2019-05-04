@@ -8,7 +8,6 @@ import {catchError} from "rxjs/operators";
   providedIn: 'root'
 })
 export class StudentService {
-
   constructor(private http: HttpClient, private queryApi:QueryApi) { }
   PostStudentDetails(params):Observable<any>{
      return this.queryApi.doPost('POSTSTUDENT',params)

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder,FormGroup, Validators} from "@angular/forms";
 import {CourseService} from "../course.service";
 import {NgFlashMessageService} from "ng-flash-messages";
+import {Router} from '@angular/router';
+
  @Component({
   selector: 'app-course-details',
   templateUrl: './course-details.component.html',
@@ -11,7 +13,8 @@ export class CourseDetailsComponent implements OnInit {
    AddCourseForm: FormGroup;
    submitted = false;
    public coursedata: any;
-   constructor(private formBuilder: FormBuilder, private service: CourseService,private ngFlashMessageService: NgFlashMessageService) {
+   constructor(private router: Router,private formBuilder: FormBuilder, private service: CourseService,
+               private ngFlashMessageService: NgFlashMessageService) {
    }
    ngOnInit() {
      this.AddCourseForm = this.formBuilder.group({
@@ -45,6 +48,8 @@ export class CourseDetailsComponent implements OnInit {
    }
    postCourseDetails(formdata) {
       this.service.postCourseDetails(formdata).subscribe(users => {
+        this.router.navigate(['/courselist'])
+
       });
    }
  }

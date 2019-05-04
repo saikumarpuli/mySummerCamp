@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class StudentdetailsComponent implements OnInit {
   students: any;
   p: number;
+  search: any={course:'',firstName:'',lastName:'',email:''};
   constructor(private service:StudentService) { }
   ngOnInit() {
     this.getdata()

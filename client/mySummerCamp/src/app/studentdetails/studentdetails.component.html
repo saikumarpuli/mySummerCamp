@@ -1,4 +1,12 @@
-<h2>Students Details</h2>
+<div class="row mt-2 col col-lg-12 col-sm-12"><h3><b class="ml-3">Search</b></h3>
+  <input class="form-control col-2 ml-4" type="text" name="search" [(ngModel)]="search.course" placeholder="search by Course name">
+  <input class="form-control col-2 ml-4" type="text" name="search" [(ngModel)]="search.firstName" placeholder="search by First name">
+  <input class="form-control col-2 ml-4" type="text" name="search" [(ngModel)]="search.lastName" placeholder="search by Last name">
+  <input class="form-control col-2 ml-4" type="text" name="search" [(ngModel)]="search.email" placeholder="search by email">
+
+</div>
+<div class=" col col-lg-12 col-sm-12">
+<h2 class="mt-2"><b>Students Details</b></h2>
 <table class="table table-hover">
   <thead id="thead">
   <tr >
@@ -9,7 +17,7 @@
   </thead>
 
   <tbody>
-  <tr  *ngFor="let student of students | paginate: { itemsPerPage: 4, currentPage: p }">
+  <tr  *ngFor="let student of students |filterBy:search| paginate: { itemsPerPage: 4, currentPage: p }">
     <td>{{student.course}}</td>
     <td>{{student.firstName}}</td>
     <td>{{student.lastName}}</td>
@@ -18,3 +26,4 @@
   <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </tbody>
 </table>
+</div>

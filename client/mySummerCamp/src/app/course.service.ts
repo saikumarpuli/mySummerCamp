@@ -9,9 +9,7 @@ import { of } from "rxjs";
   providedIn: 'root'
 })
 export class CourseService {
-
   constructor(private http: HttpClient, private queryApi:QueryApi) { }
-
   getCourseDetails():Observable<any>{
     let params;
      return this.queryApi.doGet('COURSEDETAILS',params)
@@ -26,5 +24,4 @@ export class CourseService {
         catchError(err => of([err]))
       );
   }
-
 }

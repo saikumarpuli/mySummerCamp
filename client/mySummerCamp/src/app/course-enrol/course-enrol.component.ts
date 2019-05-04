@@ -1,25 +1,25 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import { Validators } from '@angular/forms';
 import {StudentService} from "../student.service";
 import {NgFlashMessageService} from "ng-flash-messages";
-
-
  @Component({
   selector: 'app-course-enrol',
   templateUrl: './course-enrol.component.html',
   styleUrls: ['./course-enrol.component.css']
-})
+      })
 export class CourseEnrolComponent implements OnInit {
-    public details: any;
+   public details: any;
    registerForm: FormGroup;
    submitted = false;
    private studentdata: any;
-   constructor(private route: ActivatedRoute, private formBuilder: FormBuilder,private service:StudentService,private ngFlashMessageService: NgFlashMessageService) {
-   }
-
+   private students: any;
+   private flag: number=0;
+   constructor(private router: Router,private route: ActivatedRoute, private formBuilder: FormBuilder,
+               private service:StudentService,private ngFlashMessageService: NgFlashMessageService) {}
    ngOnInit() {
+     this.getdata();
      this.route.queryParams.subscribe(params => {
        this.details = params;
      });
@@ -31,32 +31,49 @@ export class CourseEnrolComponent implements OnInit {
        trainingcourse_id:[this.details.id]
      });
    }
-
    // convenience getter for easy access to form fields
    get f() {
      return this.registerForm.controls;
    }
-
+   getdata() {
+     this.service.getStudentDetails().subscribe((response) => {
+       this.students = response;
+      })
+   }
    onSubmit(value) {
      this.submitted = true;
      this.studentdata = value;
      if (this.registerForm.invalid) {
-       console.log("fuckoff");
-        return;
+         return;
      }
+     else {
+       for(let student of this.students){
+         if(value.email.toLowerCase().localeCompare(student.email.toLowerCase())==0){
+           this.flag=1;
+         }
+       }
+       if(this.flag==1){
+         this.ngFlashMessageService.showFlashMessage({
+           messages: ["Email already Registerd "],
+           dismissible: true,
+           timeout: 5000,
+           type:'danger'
+         });
+       }
      else  {
-        this.postStudentDetails(this.studentdata);
-        this.ngFlashMessageService.showFlashMessage({
-          messages: ["Enrolled sucessfully"],
-          dismissible: true,
-          timeout: 5000,
-          type:'success'
-     });
+         this.postStudentDetails(this.studentdata);
+         this.ngFlashMessageService.showFlashMessage({
+           messages: ["Enrolled sucessfully"],
+           dismissible: true,
+           timeout: 5000,
+           type:'success'
+         });
+       }
      }
-   }
+    }
    postStudentDetails(formdata){
    this.service.PostStudentDetails(formdata).subscribe(users=>{
-     console.log(formdata);
-  });
+     this.router.navigate(['/studentDetails'])
+   });
    }
  }

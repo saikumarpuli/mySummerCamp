@@ -26,6 +26,4 @@ export class CoursesComponent implements OnInit {
     }
     this.router.navigate(['/courseEnrol'], naigationExtras);
   }
-
-
 }
