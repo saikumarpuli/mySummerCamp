@@ -1,9 +1,12 @@
 <div class="container">
-  <div class="row">
-  <h2 class="col-2">  <button type="submit" class="btn btn-light"><a routerLink="/courseDetails">Add Course</a></button></h2>
-  <h2 align="right">  <button type="submit" class="btn btn-light"><a routerLink="/studentDetails">Enrolled Students</a></button></h2></div>
-  <input class="form-control" type="text" name="search"  [(ngModel)]="search" autocomplete="off" placeholder="search here for course and course details ">
-  <h2>Course Details</h2>
+  <div class="row mt-2"><h3><b class="ml-3">Search</b></h3>
+    <input class="form-control col-2 ml-2" type="text"  name="search" [(ngModel)]="search.name" placeholder="search by name">
+    <input class="form-control col-2 ml-2" type="number" min="0" name="search" [(ngModel)]="search.duration" placeholder="search by duration">
+    <input class="form-control col-2 ml-2" type="number" min="0" name="search" [(ngModel)]="search.noOfDays" placeholder="search by noOfDays">
+    <input class="form-control col-2 ml-2" type="text" name="search" [(ngModel)]="search.Coach" placeholder="search by Coach">
+    <input class="form-control col-2 ml-2" type="number" min="0" name="search" [(ngModel)]="search.fee" placeholder="search by fee">
+  </div>
+  <h2 class="mt-3"><b>Course Details</b></h2>
    <table class="table table-hover">
     <thead id="thead">
     <tr >
@@ -12,18 +15,16 @@
       <th><b>Number Of Days</b></th>
       <th><b>Coach</b></th>
       <th><b>Fee(Rs)</b></th>
-    <th><b>Enroll</b></th></tr>
+   </tr>
     </thead>
-
   <tbody>
-      <tr  *ngFor="let course of courses |filter:search| paginate: { itemsPerPage: 4, currentPage: p }">
+      <tr  *ngFor="let course of courses |filterBy:search| paginate: { itemsPerPage: 4, currentPage: p }" (click)="navigate(course)">
       <td>{{course.name}}</td>
       <td>{{course.duration}}</td>
       <td>{{course.noOfDays}}</td>
       <td>{{course.Coach}}</td>
       <td>{{course.fee}}</td>
-      <td><button (click)="navigate(course)">Enrol</button></td>
-      </tr>
+       </tr>
       <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </tbody>
   </table>

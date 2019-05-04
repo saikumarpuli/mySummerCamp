@@ -24,7 +24,7 @@ export class CourseEnrolComponent implements OnInit {
        this.details = params;
      });
      this.registerForm = this.formBuilder.group({
-       course: ['', [Validators.required]],
+       course:[this.details.name],
        firstName: ['', Validators.required],
        lastName: ['', Validators.required],
        email: ['', [Validators.required, Validators.email]],
@@ -41,29 +41,22 @@ export class CourseEnrolComponent implements OnInit {
      this.submitted = true;
      this.studentdata = value;
      if (this.registerForm.invalid) {
+       console.log("fuckoff");
         return;
      }
-
-     else if ((this.registerForm.value.course.toLocaleLowerCase()).localeCompare(this.details.name.toLocaleLowerCase()) == 0) {
-       this.postStudentDetails(this.studentdata);
+     else  {
+        this.postStudentDetails(this.studentdata);
         this.ngFlashMessageService.showFlashMessage({
-          messages: [value.firstName + "  Enrolled sucessfully"],
+          messages: ["Enrolled sucessfully"],
           dismissible: true,
           timeout: 5000,
           type:'success'
      });
      }
-     else {
-       this.ngFlashMessageService.showFlashMessage({
-          messages: ["Course name should be selected one"],
-          dismissible: true,
-          timeout: 5000,
-          type: 'danger'
-       });
-     }
    }
    postStudentDetails(formdata){
    this.service.PostStudentDetails(formdata).subscribe(users=>{
+     console.log(formdata);
   });
    }
  }

@@ -9,7 +9,7 @@ import {CourseService} from "../course.service"
 export class CoursesComponent implements OnInit {
    public courses: any;
   p: number;
-  search : any;
+  search : any={name:'',duration:'',noOfDays:'',Coach:'',fee:''};
 
   constructor(private router: Router,private service:CourseService) { }
  ngOnInit() {

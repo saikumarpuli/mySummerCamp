@@ -12,19 +12,11 @@
 </div>
 </div>
    <div class="container">
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
-        <ng-flash-message></ng-flash-message>
+     <div class="form-group">
+         <ng-flash-message></ng-flash-message>
 
-        <h3>Course Registration form</h3>
+       <h3><b>Course Registration form</b></h3>
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
-          <div class="form-group">
-            <label>Course Name</label>
-            <input type="text" placeholder="Course name" formControlName="course" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.course.errors }" />
-            <div *ngIf="submitted && !!f.course.errors" class="invalid-feedback">
-              <div *ngIf="!!f.course.errors.required">coursename is required</div>
-             </div>
-          </div>
           <div class="form-group">
             <label>First Name</label>
             <input type="text" placeholder="First name" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
@@ -52,9 +44,9 @@
 
           <div class="form-group">
             <button class="btn btn-primary">Register</button>
+            <button class="btn btn-primary ml-3" type="reset">Reset </button>
           </div>
         </form>
       </div>
     </div>
-  </div>
 
