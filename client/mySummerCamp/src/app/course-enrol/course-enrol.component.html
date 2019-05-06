@@ -1,20 +1,19 @@
-<div class="container col col-lg-12 col-sm-12">
+<div class="container col col-lg-12 col-sm-12 col-md-12 col-sm-12">
 <div class="table-responsive">
-    <table class="table">
     <h3><b>Course Details</b></h3>
-    <tr>  <td><b>Name:</b></td><td>{{details.name}}</td></tr>
-     <tr>  <td><b>Description:</b></td><td>{{details.description}}</td></tr>
-     <tr>  <td><b>Duration(Hrs):</b> </td><td>{{details.duration}}</td></tr>
-     <tr>  <td><b>NoOfDays:</b></td><td>{{details.noOfDays}}</td></tr>
-     <tr>  <td><b>Coach:</b></td><td>{{details.Coach}}</td></tr>
-     <tr>  <td><b>Fee(Rs):</b></td><td>{{details.fee}}</td></tr>
+  <table class="table">
+     <tr>  <td scope="row"><b>Name:</b></td><td>{{details.name}}</td></tr>
+     <tr>  <td scope="row"><b>Description:</b></td><td>{{details.description}}</td></tr>
+     <tr>  <td scope="row"><b>Duration(Hrs):</b></td><td>{{details.duration}}</td></tr>
+     <tr>  <td scope="row"><b>NoOfDays:</b></td><td>{{details.noOfDays}}</td></tr>
+     <tr>  <td scope="row"><b>Coach:</b></td><td>{{details.Coach}}</td></tr>
+     <tr>  <td scope="row"><b>Fee(Rs):</b></td><td>{{details.fee}}</td></tr>
   </table>
 </div>
 </div>
 <div class="container col col-lg-12 col-sm-12">
      <div class="form-group">
          <ng-flash-message></ng-flash-message>
-
        <h3><b>Course Registration form</b></h3>
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
           <div class="form-group">
@@ -42,7 +41,7 @@
             </div>
           </div>
 
-          <div class="form-group">
+          <div class="form-group pb-md-4 pb-xl-4 pb-lg-4 pb-sm-4">
             <button class="btn btn-primary">Register</button>
             <button class="btn btn-primary ml-3" type="reset">Reset </button>
           </div>

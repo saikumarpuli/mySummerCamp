@@ -39,7 +39,7 @@ export class CourseDetailsComponent implements OnInit {
      else{
        this.postCourseDetails(this.coursedata);
         this.ngFlashMessageService.showFlashMessage({
-           messages: [value.name + " course added sucessfully"],
+           messages: ["course added sucessfully"],
            dismissible: true,
            timeout: 5000,
            type: 'success'
