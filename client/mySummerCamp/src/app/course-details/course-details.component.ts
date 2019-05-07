@@ -48,7 +48,7 @@ export class CourseDetailsComponent implements OnInit {
    }
    postCourseDetails(formdata) {
       this.service.postCourseDetails(formdata).subscribe(users => {
-        this.router.navigate(['/courselist'])
+        this.router.navigate(['/courselist'],{ skipLocationChange: true })
 
       });
    }

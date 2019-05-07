@@ -58,3 +58,34 @@
       </div>
 </div>
 
+
+<!--
+
+<div  class="container col col-lg-12 col-sm-12 col-md-12 col-sm-12 pb-3">
+  <button (click)="getRegisterd()"  class="btn btn-primary">Register</button>
+</div>
+
+
+<div class=" col col-lg-12 col-sm-12">
+  <h2 class="mt-2"><b>Students Details</b></h2>
+  <table class="table table-hover">
+    <thead id="thead">
+    <tr >
+      <th><b>Course</b></th>
+      <th><b>First name</b></th>
+      <th><b>Last name</b></th>
+      <th><b>Email</b></th></tr>
+    </thead>
+
+    <tbody>
+    <tr  *ngFor="let student of enrolled | paginate: { itemsPerPage: 4, currentPage: p }">
+      <td>{{student.course}}</td>
+      <td>{{student.firstName}}</td>
+      <td>{{student.lastName}}</td>
+      <td>{{student.email}}</td>
+    </tr>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </tbody>
+  </table>
+</div>
+-->

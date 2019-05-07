@@ -22,6 +22,11 @@ export class StudentService {
         catchError(err => of([err]))
       );
   }
-
+  getEnrolledDetails(params):Observable<any>{
+      return this.queryApi.doGet('GETENROLLED',params)
+      .pipe(
+        catchError(err => of([err]))
+      );
+  }
 
 }
