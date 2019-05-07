@@ -16,7 +16,8 @@ export class CourseEnrolComponent implements OnInit {
    private studentdata: any;
    private students: any;
    private flag: number=0;
-   constructor(private router: Router,private route: ActivatedRoute, private formBuilder: FormBuilder,
+   private id: boolean;
+    constructor(private router: Router,private route: ActivatedRoute, private formBuilder: FormBuilder,
                private service:StudentService,private ngFlashMessageService: NgFlashMessageService) {}
    ngOnInit() {
      this.getdata();
@@ -76,4 +77,8 @@ export class CourseEnrolComponent implements OnInit {
      this.router.navigate(['/studentDetails'])
    });
    }
+
+   get() {
+     this.id="true";
+    }
  }

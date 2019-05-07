@@ -33,7 +33,8 @@ import { StudentdetailsComponent } from './studentdetails/studentdetails.compone
     NgFlashMessagesModule.forRoot(),
     NgxPaginationModule,
     FilterPipeModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+
   ],
   providers: [QueryApi],
   bootstrap: [AppComponent]

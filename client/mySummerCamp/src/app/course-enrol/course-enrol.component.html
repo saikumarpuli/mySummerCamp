@@ -1,4 +1,4 @@
-<div class="jumbotron col col-lg-12 col-sm-12 col-md-12 col-sm-12">
+<div class="container col col-lg-12 col-sm-12 col-md-12 col-sm-12">
 <div class="table-responsive">
     <h3><b style="color: #3D9970">Course Details</b></h3>
   <table class="table">
@@ -11,7 +11,12 @@
   </table>
 </div>
 </div>
-<div class="jumbotron col col-lg-12 col-sm-12">
+
+<div  class="container col col-lg-12 col-sm-12 col-md-12 col-sm-12 pb-3">
+ <button (click)="get()"  class="btn btn-primary">Register</button>
+</div>
+
+<div *ngIf ="id" class="jumbotron col col-lg-12 col-sm-12">
      <div class="form-group">
          <ng-flash-message></ng-flash-message>
        <h3><b style="color: #3D9970">Course Registration form</b></h3>
