@@ -10,7 +10,7 @@ const routes: Routes = [
   {path:'courseEnrol', component:CourseEnrolComponent},
   {path:'courseDetails',component:CourseDetailsComponent},
   {path:'studentDetails',component:StudentdetailsComponent},
-  {path: '', redirectTo : '/courselist', pathMatch: 'full'},
+  {path: '**', redirectTo : '/courselist', pathMatch: 'full'},
 
  ];
 

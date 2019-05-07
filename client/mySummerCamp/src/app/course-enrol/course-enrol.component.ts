@@ -25,9 +25,9 @@ export class CourseEnrolComponent implements OnInit {
      });
      this.registerForm = this.formBuilder.group({
        course:[this.details.name],
-       firstName: ['', Validators.required],
-       lastName: ['', Validators.required],
-       email: ['', [Validators.required, Validators.email]],
+       firstName: ['', [Validators.required, Validators.minLength(3),Validators.pattern(/^[a-zA-Z]+$/)]],
+       lastName: ['', [Validators.required, Validators.minLength(3),Validators.pattern(/^[a-zA-Z]+$/)]],
+       email: ['', [Validators.required, Validators.email, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)]],
        trainingcourse_id:[this.details.id]
      });
    }

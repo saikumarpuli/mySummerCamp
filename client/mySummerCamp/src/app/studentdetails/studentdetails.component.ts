@@ -15,7 +15,7 @@ export class StudentdetailsComponent implements OnInit {
   }
   getdata() {
     this.service.getStudentDetails().subscribe((response) => {
-      this.students = response;
-    })
+      this.students = response.reverse();
+      })
   }
 }

@@ -7,7 +7,9 @@
           <label>Name:</label>
           <input type="text" placeholder="Course name" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
           <div *ngIf="submitted && !!f.name.errors" class="invalid-feedback">
-            <div *ngIf="!!f.name.errors.required">name is required</div>
+            <div *ngIf="!!f.name.errors.required">Name is required</div>
+            <div *ngIf="f.name.errors.pattern"><p>Name contains only alphabets</p></div>
+            <div *ngIf="f.name.errors.minlength"><p>Name must be at least 3 characters</p></div>
           </div>
         </div>
         <div class="form-group">
@@ -36,6 +38,8 @@
           <input type="text" placeholder="  Coach" formControlName="Coach" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Coach.errors }" />
           <div *ngIf="submitted && !!f.Coach.errors" class="invalid-feedback">
             <div *ngIf="!!f.Coach.errors.required">Coach is required</div>
+            <div *ngIf="f.Coach.errors.pattern"><p>Coach Name contains only alphabets</p></div>
+            <div *ngIf="f.Coach.errors.minlength"><p>Coach Name must be at least 3 characters</p></div>
           </div>
         </div>
         <div class="form-group">

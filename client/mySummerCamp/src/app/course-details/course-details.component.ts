@@ -18,11 +18,11 @@ export class CourseDetailsComponent implements OnInit {
    }
    ngOnInit() {
      this.AddCourseForm = this.formBuilder.group({
-       name: ['', Validators.required],
+       name:  ['', [Validators.required, Validators.minLength(3),Validators.pattern(/^[a-zA-Z]+$/)]],
        description: ['', Validators.required],
        duration: ['', [Validators.required]],
        noOfDays: ['', [Validators.required]],
-       Coach: ['', Validators.required],
+       Coach: ['', [Validators.required, Validators.minLength(3),Validators.pattern(/^[a-zA-Z]+$/)]],
        fee: ['', Validators.required],
      });
    }

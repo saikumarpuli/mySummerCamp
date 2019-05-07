@@ -1,6 +1,6 @@
-<div class="container col col-lg-12 col-sm-12 col-md-12 col-sm-12">
+<div class="jumbotron col col-lg-12 col-sm-12 col-md-12 col-sm-12">
 <div class="table-responsive">
-    <h3><b>Course Details</b></h3>
+    <h3><b style="color: #3D9970">Course Details</b></h3>
   <table class="table">
      <tr>  <td scope="row"><b>Name:</b></td><td>{{details.name}}</td></tr>
      <tr>  <td scope="row"><b>Description:</b></td><td>{{details.description}}</td></tr>
@@ -11,16 +11,18 @@
   </table>
 </div>
 </div>
-<div class="container col col-lg-12 col-sm-12">
+<div class="jumbotron col col-lg-12 col-sm-12">
      <div class="form-group">
          <ng-flash-message></ng-flash-message>
-       <h3><b>Course Registration form</b></h3>
+       <h3><b style="color: #3D9970">Course Registration form</b></h3>
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
           <div class="form-group">
             <label>First Name</label>
             <input type="text" placeholder="First name" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
             <div *ngIf="submitted && !!f.firstName.errors" class="invalid-feedback">
-              <div *ngIf="!!f.firstName.errors.required">First Name is required</div>
+              <div *ngIf="f.firstName.errors.required">First Name is required</div>
+              <div *ngIf="f.firstName.errors.pattern"><p>First Name contains only alphabets</p></div>
+              <div *ngIf="f.firstName.errors.minlength"><p>First Name must be at least 3 characters</p></div>
 
             </div>
           </div>
@@ -28,7 +30,9 @@
             <label>Last Name</label>
             <input type="text" placeholder="Last name" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
             <div *ngIf="submitted &&!! f.lastName.errors" class="invalid-feedback">
-              <div *ngIf="!!f.lastName.errors.required">Last Name is required</div>
+              <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+              <div *ngIf="f.lastName.errors.pattern"><p>Last Name contains only alphabets</p></div>
+              <div *ngIf="f.lastName.errors.minlength"><p>Last Name must be at least 3 characters</p></div>
 
             </div>
           </div>
@@ -36,9 +40,9 @@
             <label>Email</label>
             <input type="text" placeholder="Email address" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
             <div *ngIf="submitted && !!f.email.errors" class="invalid-feedback">
-              <div *ngIf="!!f.email.errors.required">Email is required</div>
-              <div *ngIf="!!f.email.errors.email">Email must be a valid email address</div>
-            </div>
+              <div *ngIf="f.email.errors.required">Email is required</div>
+              <div *ngIf="f.email.errors.pattern"><p>Email must be a valid email address</p></div>
+             </div>
           </div>
 
           <div class="form-group pb-md-4 pb-xl-4 pb-lg-4 pb-sm-4">

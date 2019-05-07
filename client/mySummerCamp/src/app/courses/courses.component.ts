@@ -17,7 +17,7 @@ export class CoursesComponent implements OnInit {
  }
   getdata() {
     this.service.getCourseDetails().subscribe((response) => {
-       this.courses = response;
+       this.courses = response.reverse();
      })
   }
   navigate(event) {
