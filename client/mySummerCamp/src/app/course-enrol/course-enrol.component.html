@@ -20,7 +20,7 @@
 <div *ngIf ="id" class="jumbotron col col-lg-12 col-sm-12">
      <div class="form-group">
          <ng-flash-message></ng-flash-message>
-       <h3><b style="color: #3D9970">Course Registration form</b></h3>
+       <h3><b style="color: #3D9970">Course Registration Form</b></h3>
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
           <div class="form-group">
             <label>First Name</label>
@@ -59,12 +59,8 @@
       </div>
 </div>
 
-
-
-
-
 <div *ngIf ="enroll" class=" col col-lg-12 col-sm-12">
-  <h2 class="mt-2"><b>Enrolled Students Details</b></h2>
+  <h2 class="mt-2"><b  style="color: #3D9970">Enrolled Students Details</b></h2>
   <table class="table table-hover">
     <thead id="thead">
     <tr >
@@ -85,4 +81,3 @@
     </tbody>
   </table>
 </div>
-

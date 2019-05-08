@@ -19,6 +19,7 @@ export default class StudentController {
   }
 
   static getbycourse(req,res){
+    console.log("fdhjksjkdfskhfksdkhdk")
     StudentDao.getbycourse(req.params.course)
       .then(results=>res.status(200).json(results))
       .catch(error=>res.status(400).json(error))

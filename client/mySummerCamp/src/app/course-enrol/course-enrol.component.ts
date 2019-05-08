@@ -105,5 +105,6 @@ export class CourseEnrolComponent implements OnInit {
      this.id=false;
 
    }
+
  }
 

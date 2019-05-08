@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router, NavigationExtras} from '@angular/router';
 import {CourseService} from "../course.service"
+
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
