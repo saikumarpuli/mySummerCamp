@@ -12,6 +12,10 @@ export default class StudentRoute {
       .put(StudentController.updatebyid)
       .delete(StudentController.removebyid)
 
+    router
+      .route('/student/:course')
+      .get(StudentController.getbycourse)
+
   }
 
 }

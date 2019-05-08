@@ -18,6 +18,11 @@ export default class StudentController {
       .catch(error=>res.status(400).json(error))
   }
 
+  static getbycourse(req,res){
+    StudentDao.getbycourse(req.params.course)
+      .then(results=>res.status(200).json(results))
+      .catch(error=>res.status(400).json(error))
+  }
   static updatebyid(req,res){
     StudentDao.updatebyid(req.body,req.params.id)
       .then(results=>res.status(200).json(results))

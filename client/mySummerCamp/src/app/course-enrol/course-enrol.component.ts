@@ -20,6 +20,7 @@ export class CourseEnrolComponent implements OnInit {
    i: number = 0;
    private enrolled: any;
    p: any;
+   enroll: any;
 
    constructor(private router: Router, private route: ActivatedRoute, private formBuilder: FormBuilder,
                private service: StudentService, private ngFlashMessageService: NgFlashMessageService) {
@@ -52,7 +53,7 @@ export class CourseEnrolComponent implements OnInit {
    }
 
    getenrolldata() {
-     this.service.getEnrolledDetails(this.details.name).subscribe((response) => {
+     this.service.getEnrolledDetails(this.details.id).subscribe((response) => {
        this.enrolled = response;
        console.log(this.enrolled);
      })
@@ -60,6 +61,7 @@ export class CourseEnrolComponent implements OnInit {
 
    get() {
      this.id = true;
+     this.enroll=false;
    }
 
    onSubmit(value) {
@@ -98,13 +100,10 @@ export class CourseEnrolComponent implements OnInit {
      });
    }
 
-  /* getRegisterd() {
-     for (let student of this.students) {
-       if (this.details.name.toLowerCase().localeCompare(student.course.toLowerCase()) == 0) {
-         this.enrolled=student;
-       }
-     }
-      console.log(this.enrolled);
-   }*/
+   getRegisterd() {
+     this.enroll = true;
+     this.id=false;
+
+   }
  }
 

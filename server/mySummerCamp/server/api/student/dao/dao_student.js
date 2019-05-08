@@ -19,11 +19,20 @@ export default class StudentDao {
 
   static getbyid(id){
     return new Promise((resolve,reject)=>{
-      models.student.findAll({where:{id:id}})
+      models.student.findAll({where:{trainingcourse_id:id}})
         .then(results=>resolve(results))
         .catch(error=>reject(error))
     })
   }
+  static getbycourse(req){
+    return new Promise((resolve,reject)=>{
+      models.student.findAll({where:{course:req}})
+        .then(results=>resolve(results))
+        .catch(error=>reject(error))
+    })
+  }
+
+
 
   static removebyid(id){
     return new Promise((resolve,reject)=>{
