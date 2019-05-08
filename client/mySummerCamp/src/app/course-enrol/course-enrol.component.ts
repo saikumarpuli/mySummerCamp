@@ -55,8 +55,7 @@ export class CourseEnrolComponent implements OnInit {
    getenrolldata() {
      this.service.getEnrolledDetails(this.details.id).subscribe((response) => {
        this.enrolled = response;
-       console.log(this.enrolled);
-     })
+      })
    }
 
    get() {
@@ -83,13 +82,13 @@ export class CourseEnrolComponent implements OnInit {
            type: 'danger'
          });
        } else {
-         this.postStudentDetails(this.studentdata);
          this.ngFlashMessageService.showFlashMessage({
            messages: ["Enrolled sucessfully"],
            dismissible: true,
            timeout: 5000,
            type: 'success'
          });
+         this.postStudentDetails(this.studentdata);
        }
      }
    }

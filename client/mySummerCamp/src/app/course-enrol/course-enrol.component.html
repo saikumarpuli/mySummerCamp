@@ -14,7 +14,8 @@
 
 <div  class="container col col-lg-12 col-sm-12 col-md-12 col-sm-12 pb-3">
   <button (click)="get()"  class="btn btn-primary ">Click To Register</button>
-  <button (click)="getRegisterd()"  class="btn btn-primary ml-5">Enrolled Students Details</button>
+  <button (click)="getRegisterd()"  type="button" class="btn btn-primary  ml-5" data-toggle="modal" data-target="#myModal">Enrolled Students Details</button>
+
 </div>
 
 <div *ngIf ="id" class="jumbotron col col-lg-12 col-sm-12">
@@ -59,25 +60,42 @@
       </div>
 </div>
 
-<div *ngIf ="enroll" class=" col col-lg-12 col-sm-12">
-  <h2 class="mt-2"><b  style="color: #3D9970">Enrolled Students Details</b></h2>
-  <table class="table table-hover">
-    <thead id="thead">
-    <tr >
-      <th><b>Course</b></th>
-      <th><b>First name</b></th>
-      <th><b>Last name</b></th>
-      <th><b>Email</b></th></tr>
-    </thead>
 
-    <tbody>
-    <tr  *ngFor="let student of enrolled | paginate: { itemsPerPage: 4, currentPage: p }">
-      <td>{{student.course}}</td>
-      <td>{{student.firstName}}</td>
-      <td>{{student.lastName}}</td>
-      <td>{{student.email}}</td>
-    </tr>
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
-    </tbody>
-  </table>
+ <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+       <h2  class="modal-title" id="exampleModalLongTitle" ><b  style="color: #3D9970">Enrolled Students Details</b></h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div *ngIf ="enroll" class=" col col-lg-12 col-sm-12">
+          <table class="table table-hover">
+            <thead id="thead">
+            <tr >
+              <th><b>Course</b></th>
+              <th><b>First name</b></th>
+              <th><b>Last name</b></th>
+              <th><b>Email</b></th></tr>
+            </thead>
+
+            <tbody>
+            <tr  *ngFor="let student of enrolled | paginate: { itemsPerPage: 4, currentPage: p }">
+              <td>{{student.course}}</td>
+              <td>{{student.firstName}}</td>
+              <td>{{student.lastName}}</td>
+              <td>{{student.email}}</td>
+            </tr>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       </div>
+    </div>
+  </div>
 </div>
