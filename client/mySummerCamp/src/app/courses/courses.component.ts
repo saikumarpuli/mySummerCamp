@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router, NavigationExtras} from '@angular/router';
+import {Router} from '@angular/router';
 import {CourseService} from "../course.service"
 
 @Component({
@@ -22,9 +22,6 @@ export class CoursesComponent implements OnInit {
      })
   }
   navigate(event) {
-    let naigationExtras: NavigationExtras = {
-      queryParams: event
-    }
-    this.router.navigate(['/courseEnrol'], naigationExtras);
+      this.router.navigate(['/courseEnrol',event],{skipLocationChange: true});
   }
 }

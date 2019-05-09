@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import { Validators } from '@angular/forms';
 import {StudentService} from "../student.service";
 import {NgFlashMessageService} from "ng-flash-messages";
+import {CourseService} from "../course.service";
  @Component({
   selector: 'app-course-enrol',
   templateUrl: './course-enrol.component.html',
@@ -21,26 +22,35 @@ export class CourseEnrolComponent implements OnInit {
    private enrolled: any;
    p: any;
    enroll: any;
+   _id: number;
+   private name: any;
 
    constructor(private router: Router, private route: ActivatedRoute, private formBuilder: FormBuilder,
-               private service: StudentService, private ngFlashMessageService: NgFlashMessageService) {
+               private service: StudentService,private courseService:CourseService,   private ngFlashMessageService: NgFlashMessageService) {
    }
 
+   private getcoursedetails() {
+     this.courseService.getCoursedetails(this._id).subscribe((response) => {
+       this.details = response;
+       console.log(this.details);
+      })
+   }
    ngOnInit() {
-     this.getdata();
-     this.route.queryParams.subscribe(params => {
-       this.details = params;
-     });
-     this.getenrolldata();
-     this.registerForm = this.formBuilder.group({
-       course: [this.details.name],
-       firstName: ['', [Validators.required, Validators.minLength(3), Validators.pattern(/^[a-zA-Z]+$/)]],
-       lastName: ['', [Validators.required, Validators.minLength(3), Validators.pattern(/^[a-zA-Z]+$/)]],
-       email: ['', [Validators.required, Validators.email, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)]],
-       trainingcourse_id: [this.details.id]
-     });
+     this.route.params.subscribe(params => {
+       this._id = params.id;
+       this.name=params.name;
+         });
+     this.getcoursedetails();
+      this.getdata();
+      this.getenrolldata();
+      this.registerForm = this.formBuilder.group({
+        course: [this.name],
+        firstName: ['', [Validators.required, Validators.minLength(3), Validators.pattern(/^[a-zA-Z]+$/)]],
+        lastName: ['', [Validators.required, Validators.minLength(3), Validators.pattern(/^[a-zA-Z]+$/)]],
+        email: ['', [Validators.required, Validators.email, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)]],
+        trainingcourse_id: [this._id]
+      });
    }
-
    // convenience getter for easy access to form fields
    get f() {
      return this.registerForm.controls;
@@ -53,7 +63,7 @@ export class CourseEnrolComponent implements OnInit {
    }
 
    getenrolldata() {
-     this.service.getEnrolledDetails(this.details.id).subscribe((response) => {
+     this.service.getEnrolledDetails(this._id).subscribe((response) => {
        this.enrolled = response;
       })
    }
@@ -102,7 +112,6 @@ export class CourseEnrolComponent implements OnInit {
    getRegisterd() {
      this.enroll = true;
      this.id=false;
-
    }
 
  }

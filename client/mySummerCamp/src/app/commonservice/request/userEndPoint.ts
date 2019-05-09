@@ -3,6 +3,8 @@ export const COURSEDETAILS ='COURSEDETAILS';
  export const POSTCOURSE= 'POSTCOURSE';
 export const POSTSTUDENT= 'POSTSTUDENT';
 export const GETENROLLED= 'GETENROLLED';
+export const GETCOURSE= 'GETCOURSE';
+
 
 GETENROLLED
 export const UserEndPoint =(type:string,params:any)=> {
@@ -18,5 +20,8 @@ export const UserEndPoint =(type:string,params:any)=> {
 
     case POSTCOURSE:
       return environment.API_ROOT + 'course';
+
+    case GETCOURSE:
+      return environment.API_ROOT + 'course/'+params;
   }
 }

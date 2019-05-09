@@ -8,6 +8,8 @@ import {StudentdetailsComponent} from "./studentdetails/studentdetails.component
 const routes: Routes = [
   {path:'courselist', component:CoursesComponent},
   {path:'courseEnrol', component:CourseEnrolComponent},
+  {path:'courseEnrol/:id', component:CourseEnrolComponent},
+
   {path:'courseDetails',component:CourseDetailsComponent},
   {path:'studentDetails',component:StudentdetailsComponent},
   {path: '**', redirectTo : '/courselist', pathMatch: 'full'},

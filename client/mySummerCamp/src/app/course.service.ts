@@ -23,4 +23,10 @@ export class CourseService {
         catchError(err => of([err]))
       );
   }
+  getCoursedetails(id):Observable<any>{
+ return this.queryApi.doGet('GETCOURSE',id)
+      .pipe(
+        catchError(err => of([err]))
+      );
+  }
 }
