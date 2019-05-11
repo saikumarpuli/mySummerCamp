@@ -1,13 +1,64 @@
 import models from '../../../models'
 import Promise from 'bluebird'
 export default class TrainingCourseDao {
-  static getAll(){
-    return new Promise((resolve,reject)=>{
-      models.trainingcourse.findAll({})
-        .then(results=>resolve(results))
-        .catch(error=>reject(error))
+  static getAll(pageData,limit) {
+     console.log("in dao limit ",limit)
+    return new Promise((resolve, reject) => {
+      models.trainingcourse.findAndCountAll()
+        .then(data=>{
+          let page = pageData;      // page number
+          let pages = Math.ceil(data.count / limit);
+          let offset = limit * (page - 1);
+
+
+          models.trainingcourse.findAndCountAll({
+            limit: limit,
+            offset: offset,
+            order: [
+              ['createdAt', 'DESC']
+            ]
+          }).then(result =>{
+            resolve(result);
+          }).catch(err =>{
+            reject(err);
+          });
+        }).catch(error=>{
+        reject(error);
+      })
     })
   }
+
+
+
+
+
+
+
+
+
+
+
+  /*static getAll(pageData,limit){
+    return new Promise((resolve,reject)=>{
+      models.trainingcourse.findAndCountAll({})
+        .then(results=>{
+          let page = pageData;      // page number
+          let offset = limit * (page - 1);
+          models.Post.findAndCountAll({
+            limit: limit,
+            offset: offset,
+            order: [
+              ['createdAt', 'DESC']
+            ]
+          }).then(result =>{
+            resolve(result);
+          }).catch(err =>{
+            reject(err);
+          });
+        })
+         .catch(error=>reject(error))
+    })
+  }*/
   static createNew(request){
     return new Promise((resolve,reject)=>{
       console.log("dao");

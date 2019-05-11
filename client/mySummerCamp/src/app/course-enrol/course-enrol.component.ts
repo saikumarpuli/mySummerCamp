@@ -49,6 +49,7 @@ export class CourseEnrolComponent implements OnInit {
         email: ['', [Validators.required, Validators.email, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)]],
         trainingcourse_id: [this._id]
       });
+
    }
    // convenience getter for easy access to form fields
    get f() {
@@ -58,9 +59,9 @@ export class CourseEnrolComponent implements OnInit {
    getdata() {
      this.service.getStudentDetails().subscribe((response) => {
        this.students = response;
+
      })
    }
-
    getenrolldata() {
      this.service.getEnrolledDetails(this._id).subscribe((response) => {
        this.enrolled = response;

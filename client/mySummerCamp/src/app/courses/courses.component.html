@@ -19,14 +19,14 @@
    </tr>
     </thead>
   <tbody>
-      <tr  *ngFor="let course of courses |filterBy:search| paginate: { itemsPerPage: 4, currentPage: p }" (click)="navigate(course)">
+      <tr  *ngFor="let course of courses |filterBy:search| paginate: { itemsPerPage: itemsperpage, currentPage: pageno,totalItems:total }" (click)="navigate(course)">
       <td>{{course.name}}</td>
       <td>{{course.duration}}</td>
       <td>{{course.noOfDays}}</td>
       <td>{{course.Coach}}</td>
       <td>{{course.fee}}</td>
        </tr>
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+       <pagination-controls (pageChange)="getPagination($event)"></pagination-controls>
   </tbody>
   </table>
 </div>
