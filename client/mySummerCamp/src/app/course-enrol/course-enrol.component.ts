@@ -32,8 +32,7 @@ export class CourseEnrolComponent implements OnInit {
    private getcoursedetails() {
      this.courseService.getCoursedetails(this._id).subscribe((response) => {
        this.details = response;
-       console.log(this.details);
-      })
+       })
    }
    ngOnInit() {
      this.route.params.subscribe(params => {

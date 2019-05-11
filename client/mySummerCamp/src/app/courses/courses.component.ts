@@ -22,6 +22,6 @@ export class CoursesComponent implements OnInit {
      })
   }
   navigate(event) {
-      this.router.navigate(['/courseEnrol',event],{skipLocationChange: true});
+       this.router.navigate(['/courseEnrol',event],{skipLocationChange: true});
   }
 }
