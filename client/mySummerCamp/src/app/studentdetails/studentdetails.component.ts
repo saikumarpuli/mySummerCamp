@@ -7,15 +7,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentdetailsComponent implements OnInit {
   students: any;
-  p: number;
-  search: any={course:'',firstName:'',lastName:'',email:''};
-  constructor(private service:StudentService) { }
+  total: any;
+  itemsperpage: any = 4;
+  private pageno: any = 1;
+  private page: { pageNo: any; itemsPerPage: any };
+  search: any = {course: '', firstName: '', lastName: '', email: ''};
+
+  constructor(private service: StudentService) {
+  }
+
+
   ngOnInit() {
     this.getdata()
   }
-  getdata() {
-    this.service.getStudentDetails().subscribe((response) => {
-      this.students = response.reverse();
-      })
+
+  getPagination(pageNumber) {
+
+    this.pageno = pageNumber;
+    this.page = {
+      pageNo: this.pageno,
+      itemsPerPage: this.itemsperpage
+    };
+    this.service.getStudentDetails(this.page).subscribe((response) => {
+      this.students = response.rows;
+      this.total = response.count;
+    })
   }
+
+  getdata() {
+    this.page = {
+      pageNo: this.pageno,
+      itemsPerPage: this.itemsperpage
+    };
+    this.service.getStudentDetails(this.page).subscribe((response) => {
+      this.students = response.rows;
+      this.total = response.count;
+    })
+  }
+
 }

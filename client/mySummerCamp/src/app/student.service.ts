@@ -8,6 +8,7 @@ import {catchError} from "rxjs/operators";
   providedIn: 'root'
 })
 export class StudentService {
+
   constructor(private http: HttpClient, private queryApi:QueryApi) { }
   PostStudentDetails(params):Observable<any>{
      return this.queryApi.doPost('POSTSTUDENT',params)
@@ -15,9 +16,8 @@ export class StudentService {
         catchError(err => of([err]))
       );
   }
-  getStudentDetails():Observable<any>{
-    let params;
-    return this.queryApi.doGet('POSTSTUDENT',params)
+  getStudentDetails(params):Observable<any>{
+     return this.queryApi.doGet('POSTSTUDENT',params)
       .pipe(
         catchError(err => of([err]))
       );
@@ -28,5 +28,7 @@ export class StudentService {
         catchError(err => of([err]))
       );
   }
+
+
 
 }

@@ -1,11 +1,27 @@
 import models from '../../../models'
 import Promise from 'bluebird'
 export default class StudentDao {
-  static getAll(){
+  static getAll(pageData,limit){
     return new Promise((resolve,reject)=>{
-      models.student.findAll({})
-        .then(results=>resolve(results))
-        .catch(error=>reject(error))
+      models.student.findAndCountAll({})
+        .then(data=>{
+          let page = pageData;      // page number
+          let pages = Math.ceil(data.count / limit);
+          let offset = limit * (page - 1);
+          models.student.findAndCountAll({
+            limit: limit,
+            offset: offset,
+            order: [
+              ['createdAt', 'DESC']
+            ]
+          }).then(result =>{
+            resolve(result);
+          }).catch(err =>{
+            reject(err);
+          });
+        }).catch(error=>{
+        reject(error);
+      })
     })
   }
 

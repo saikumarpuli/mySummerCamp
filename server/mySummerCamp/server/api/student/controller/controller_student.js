@@ -1,7 +1,7 @@
 import StudentDao from '../dao/dao_student'
 export default class StudentController {
   static getall(req,res){
-    StudentDao.getAll()
+    StudentDao.getAll(req.query.pageNo,req.query.itemsPerPage)
       .then(results=>res.status(200).json(results))
       .catch(error=>res.status(400).json(error))
   }
@@ -19,8 +19,7 @@ export default class StudentController {
   }
 
   static getbycourse(req,res){
-    console.log("fdhjksjkdfskhfksdkhdk")
-    StudentDao.getbycourse(req.params.course)
+     StudentDao.getbycourse(req.params.course)
       .then(results=>res.status(200).json(results))
       .catch(error=>res.status(400).json(error))
   }
