@@ -1,7 +1,13 @@
 import StudentDao from '../dao/dao_student'
 export default class StudentController {
+  static getandcountall(req,res){
+    StudentDao.getandcountAll(req.query.pageNo,req.query.itemsPerPage)
+      .then(results=>res.status(200).json(results))
+      .catch(error=>res.status(400).json(error))
+  }
+
   static getall(req,res){
-    StudentDao.getAll(req.query.pageNo,req.query.itemsPerPage)
+    StudentDao.getAll()
       .then(results=>res.status(200).json(results))
       .catch(error=>res.status(400).json(error))
   }

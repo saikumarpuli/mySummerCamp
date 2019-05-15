@@ -3,8 +3,11 @@ export default class StudentRoute {
   static init(router){
     router
       .route('/student')
-      .get(StudentController.getall)
+      .get(StudentController.getandcountall)
       .post(StudentController.createNew)
+    router
+      .route('/students')
+      .get(StudentController.getall)
 
     router
       .route('/student/:id')

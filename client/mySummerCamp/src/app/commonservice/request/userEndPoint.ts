@@ -4,6 +4,8 @@ export const COURSEDETAILS ='COURSEDETAILS';
 export const POSTSTUDENT= 'POSTSTUDENT';
 export const GETENROLLED= 'GETENROLLED';
 export const GETCOURSE= 'GETCOURSE';
+export const GETSTUDENT= 'GETSTUDENT';
+
 
 
 GETENROLLED
@@ -14,6 +16,9 @@ export const UserEndPoint =(type:string,params:any)=> {
 
     case  POSTSTUDENT:
       return environment.API_ROOT + 'student';
+
+    case  GETSTUDENT:
+      return environment.API_ROOT + 'students';
 
     case  GETENROLLED:
       return environment.API_ROOT + 'student/' + params;

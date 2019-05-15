@@ -57,7 +57,7 @@ export class CourseEnrolComponent implements OnInit {
    }
 
    getdata() {
-     this.service.getStudentDetails().subscribe((response) => {
+     this.service.getStudentsDetails().subscribe((response) => {
        this.students = response;
 
      })

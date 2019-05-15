@@ -1,7 +1,17 @@
 import models from '../../../models'
 import Promise from 'bluebird'
 export default class StudentDao {
-  static getAll(pageData,limit){
+
+  static getAll(){
+    return new Promise((resolve,reject)=>{
+      models.student.findAll({})
+        .then(results=>resolve(results))
+        .catch(error=>reject(error))
+    })
+  }
+
+
+  static getandcountAll(pageData,limit){
     return new Promise((resolve,reject)=>{
       models.student.findAndCountAll({})
         .then(data=>{
