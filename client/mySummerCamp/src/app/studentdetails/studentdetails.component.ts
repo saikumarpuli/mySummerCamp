@@ -10,9 +10,7 @@ export class StudentdetailsComponent implements OnInit {
   total: any;
   itemsperpage: any = 4;
   private pageno: any = 1;
-  private page: { pageNo: any; itemsPerPage: any };
-  search: any = {course: '', firstName: '', lastName: '', email: ''};
-
+  private page: { pageNo: any; itemsPerPage: any;course:any,firstName:any,lastName:any,email:any};
   constructor(private service: StudentService) {
   }
 
@@ -26,8 +24,12 @@ export class StudentdetailsComponent implements OnInit {
     this.pageno = pageNumber;
     this.page = {
       pageNo: this.pageno,
-      itemsPerPage: this.itemsperpage
-    };
+      itemsPerPage: this.itemsperpage,
+         course:'',
+        firstName:'',
+        lastName:'',
+        email:''
+     };
     this.service.getStudentDetails(this.page).subscribe((response) => {
       this.students = response.rows;
       this.total = response.count;
@@ -37,12 +39,18 @@ export class StudentdetailsComponent implements OnInit {
   getdata() {
     this.page = {
       pageNo: this.pageno,
-      itemsPerPage: this.itemsperpage
+      itemsPerPage: this.itemsperpage,
+        course:'',
+        firstName:'',
+        lastName:'',
+        email:''
+
     };
     this.service.getStudentDetails(this.page).subscribe((response) => {
       this.students = response.rows;
       this.total = response.count;
     })
+
   }
 
 }

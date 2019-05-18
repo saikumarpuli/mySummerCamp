@@ -1,5 +1,7 @@
 import models from '../../../models'
 import Promise from 'bluebird'
+var Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 export default class StudentDao {
 
   static getAll(){
@@ -11,34 +13,38 @@ export default class StudentDao {
   }
 
 
-  static getandcountAll(pageData,limit){
+  static getandcountAll(pageData,limit,course,firstName,lastName,email){
     return new Promise((resolve,reject)=>{
-      models.student.findAndCountAll({})
-        .then(data=>{
+
           let page = pageData;      // page number
-          let pages = Math.ceil(data.count / limit);
-          let offset = limit * (page - 1);
+           let offset = limit * (page - 1);
           models.student.findAndCountAll({
+
+            where:{
+              course: {[Op.iLike]: '%' + course + '%'},
+              firstName: {[Op.iLike]: '%' + firstName + '%'},
+              lastName: {[Op.iLike]: '%' + lastName + '%'},
+              email: {[Op.iLike]: '%' + email + '%'},
+            },
             limit: limit,
             offset: offset,
             order: [
               ['createdAt', 'DESC']
-            ]
+            ],
           }).then(result =>{
             resolve(result);
+            console.log("Results",result)
           }).catch(err =>{
             reject(err);
           });
-        }).catch(error=>{
-        reject(error);
-      })
-    })
+     })
   }
 
   static createNew(request){
     return new Promise((resolve,reject)=>{
       models.student.create({firstName:request.firstName, lastName:request.lastName,email:request.email,course:request.course,trainingcourse_id:request.trainingcourse_id})
         .then(results=>resolve(results))
+
         .catch(error=>reject(error))
     })
   }
