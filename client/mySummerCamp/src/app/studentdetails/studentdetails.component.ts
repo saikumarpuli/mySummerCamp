@@ -20,23 +20,6 @@ export class StudentdetailsComponent implements OnInit {
   ngOnInit() {
     this.getdata()
   }
-
-  getPagination(pageNumber) {
-    this.pageno = pageNumber;
-    this.page = {
-      pageNo: this.pageno,
-      itemsPerPage: this.itemsperpage,
-      course:this.search.course,
-      firstName:this.search.firstName,
-      lastName:this.search.lastName,
-      email:this.search.email
-     };
-    this.service.getStudentDetails(this.page).subscribe((response) => {
-      this.students = response.rows;
-      this.total = response.count;
-    })
-  }
-
   getdata() {
     this.page = {
       pageNo: this.pageno,
@@ -46,6 +29,9 @@ export class StudentdetailsComponent implements OnInit {
       lastName:this.search.lastName,
       email:this.search.email
     };
+
+    console.log(this.page,"page");
+    console.log(this.search,"search")
     this.service.getStudentDetails(this.page).subscribe((response) => {
       this.students = response.rows;
       this.total = response.count;
@@ -53,4 +39,23 @@ export class StudentdetailsComponent implements OnInit {
 
   }
 
-}
+    getPagination(pageNumber) {
+      this.pageno = pageNumber;
+      this.page = {
+        pageNo: this.pageno,
+        itemsPerPage: this.itemsperpage,
+        course:this.search.course,
+        firstName:this.search.firstName,
+        lastName:this.search.lastName,
+        email:this.search.email
+      };
+
+      console.log(this.page,"page1");
+      console.log(this.search,"search1")
+      this.service.getStudentDetails(this.page).subscribe((response) => {
+        this.students = response.rows;
+        this.total = response.count;
+      })
+    }
+  }
+
