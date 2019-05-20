@@ -22,7 +22,6 @@ export class StudentdetailsComponent implements OnInit {
   }
 
   getPagination(pageNumber) {
-
     this.pageno = pageNumber;
     this.page = {
       pageNo: this.pageno,
@@ -42,11 +41,10 @@ export class StudentdetailsComponent implements OnInit {
     this.page = {
       pageNo: this.pageno,
       itemsPerPage: this.itemsperpage,
-        course:'',
-        firstName:'',
-        lastName:'',
-        email:''
-
+      course:this.search.course,
+      firstName:this.search.firstName,
+      lastName:this.search.lastName,
+      email:this.search.email
     };
     this.service.getStudentDetails(this.page).subscribe((response) => {
       this.students = response.rows;
