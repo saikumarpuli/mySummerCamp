@@ -4,7 +4,6 @@ export default class StudentController {
      StudentDao.getandcountAll(req.query.pageNo,req.query.itemsPerPage,req.query.course,req.query.firstName,req.query.lastName,req.query.email)
       .then(results=>{
         res.status(200).json(results);
-        console.log("in controller",results)
       })
       .catch(error=>res.status(400).json(error))
   }

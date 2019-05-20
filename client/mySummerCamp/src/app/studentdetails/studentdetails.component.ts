@@ -11,6 +11,8 @@ export class StudentdetailsComponent implements OnInit {
   itemsperpage: any = 4;
   private pageno: any = 1;
   private page: { pageNo: any; itemsPerPage: any;course:any,firstName:any,lastName:any,email:any};
+  search: any = {course: '', firstName: '', lastName: '', email: ''};
+
   constructor(private service: StudentService) {
   }
 
@@ -25,10 +27,10 @@ export class StudentdetailsComponent implements OnInit {
     this.page = {
       pageNo: this.pageno,
       itemsPerPage: this.itemsperpage,
-         course:'',
-        firstName:'',
-        lastName:'',
-        email:''
+      course:this.search.course,
+      firstName:this.search.firstName,
+      lastName:this.search.lastName,
+      email:this.search.email
      };
     this.service.getStudentDetails(this.page).subscribe((response) => {
       this.students = response.rows;

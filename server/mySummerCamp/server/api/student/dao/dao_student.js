@@ -14,7 +14,7 @@ export default class StudentDao {
 
 
   static getandcountAll(pageData,limit,course,firstName,lastName,email){
-    return new Promise((resolve,reject)=>{
+     return new Promise((resolve,reject)=>{
 
           let page = pageData;      // page number
            let offset = limit * (page - 1);
@@ -33,8 +33,7 @@ export default class StudentDao {
             ],
           }).then(result =>{
             resolve(result);
-            console.log("Results",result)
-          }).catch(err =>{
+           }).catch(err =>{
             reject(err);
           });
      })

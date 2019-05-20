@@ -24,7 +24,7 @@ export class StudentService {
       );
   }
   getStudentDetails(params):Observable<any>{
-     return this.queryApi.doGet('POSTSTUDENT',params)
+      return this.queryApi.doGet('POSTSTUDENT',params)
       .pipe(
         catchError(err => of([err]))
       );
