@@ -1,8 +1,8 @@
 <div class="row mt-2 col col-lg-12 col-sm-12"><h3><b class="ml-3">Search</b></h3>
-  <input class="form-control col-2 ml-4" type="text" name="search" [(ngModel)]="search.course" placeholder="search by Course name">
-  <input class="form-control col-2 ml-4" type="text" name="search" [(ngModel)]="search.firstName" placeholder="search by First name">
-  <input class="form-control col-2 ml-4" type="text" name="search" [(ngModel)]="search.lastName" placeholder="search by Last name">
-  <input class="form-control col-2 ml-4" type="text" name="search" [(ngModel)]="search.email" placeholder="search by email">
+  <input class="form-control col-2 ml-4" type="text" name="search" [(ngModel)]="search.course" (input)="getdata()" placeholder="search by Course name">
+  <input class="form-control col-2 ml-4" type="text" name="search" [(ngModel)]="search.firstName" (input)="getdata()" placeholder="search by First name">
+  <input class="form-control col-2 ml-4" type="text" name="search" [(ngModel)]="search.lastName" (input)="getdata()" placeholder="search by Last name">
+  <input class="form-control col-2 ml-4" type="text" name="search" [(ngModel)]="search.email" (input)="getdata()" placeholder="search by email">
 </div>
 
 <div class=" col col-lg-12 col-sm-12">
