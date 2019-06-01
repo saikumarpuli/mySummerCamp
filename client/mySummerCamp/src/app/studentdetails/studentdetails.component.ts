@@ -9,8 +9,8 @@ export class StudentdetailsComponent implements OnInit {
   students: any;
   total: any;
   itemsperpage: any = 4;
-  private pageno: any = 1;
-  private page: { pageNo: any; itemsPerPage: any;course:any,firstName:any,lastName:any,email:any};
+   pageno: any = 1;
+   page: { pageNo: any; itemsPerPage: any;course:any,firstName:any,lastName:any,email:any};
   search: any = {course: '', firstName: '', lastName: '', email: ''};
 
   constructor(private service: StudentService) {

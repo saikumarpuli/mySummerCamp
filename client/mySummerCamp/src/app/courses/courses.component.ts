@@ -12,8 +12,8 @@ export class CoursesComponent implements OnInit {
    search : any={name:'',duration:'',noOfDays:'',Coach:'',fee:''};
   total: any;
   itemsperpage: any=4;
-  private pageno: any=1;
-  private page: { pageNo: any; itemsPerPage: any };
+   pageno: any=1;
+   page: { pageNo: any; itemsPerPage: any };
 
   constructor(private router: Router,private service:CourseService) { }
  ngOnInit() {

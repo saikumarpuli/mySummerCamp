@@ -14,16 +14,16 @@ export class CourseEnrolComponent implements OnInit {
    public details: any;
    registerForm: FormGroup;
    submitted = false;
-   private studentdata: any;
-   private students: any;
-   private flag: number = 0;
-   private id: boolean;
+    studentdata: any;
+    students: any;
+    flag: number = 0;
+    id: boolean;
    i: number = 0;
-   private enrolled: any;
+    enrolled: any;
    p: any;
    enroll: any;
    _id: number;
-   private name: any;
+    name: any;
 
    constructor(private router: Router, private route: ActivatedRoute, private formBuilder: FormBuilder,
                private service: StudentService,private courseService:CourseService,   private ngFlashMessageService: NgFlashMessageService) {
