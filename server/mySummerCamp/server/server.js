@@ -8,7 +8,9 @@ import RoutesConfig from "./config/routes.conf";
 import Routes from "./routes/index";
 
 const app = express();
-
+app.get("/",(req,res)=>{
+  res.send("ok its work");
+})
 RoutesConfig.init(app);
 // DBConfig.init();
 Routes.init(app, express.Router());
