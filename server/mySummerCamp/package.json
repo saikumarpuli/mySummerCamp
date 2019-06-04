@@ -17,6 +17,7 @@
     "babel-preset-minify": "^0.4.1",
     "babel-regenerator-runtime": "^6.5.0",
     "babel-register": "^6.26.0",
+    "bluebird": "^3.5.5",
     "compression": "^1.7.4",
     "express": "^4.16.4",
     "helmet": "^3.16.0",
