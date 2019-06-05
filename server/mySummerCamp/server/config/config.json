@@ -14,10 +14,15 @@
     "dialect": "postgres"
   },
   "production": {
-    "username": "postgres",
-    "password": "saikumar",
-    "database": "mysummercamp_app_production",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "username": "aeraqxctsahkfn",
+    "password": "d6efa36e07de9e13da621f40ddbd9146fd4118f918e102cfb5e6e7313b4b7965",
+    "database": "dakde2mdpvfpbo",
+    "host": "ec2-23-21-148-223.compute-1.amazonaws.com",
+    "dialect": "postgres",
+    "port" : "5432",
+    "dialectOptions": {
+      "ssl" : true
+    }
   }
 }
+
