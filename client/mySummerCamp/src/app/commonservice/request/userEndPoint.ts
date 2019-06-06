@@ -1,14 +1,10 @@
 import {environment} from "../../../environments/environment";
 export const COURSEDETAILS ='COURSEDETAILS';
- export const POSTCOURSE= 'POSTCOURSE';
+export const POSTCOURSE= 'POSTCOURSE';
 export const POSTSTUDENT= 'POSTSTUDENT';
 export const GETENROLLED= 'GETENROLLED';
 export const GETCOURSE= 'GETCOURSE';
 export const GETSTUDENT= 'GETSTUDENT';
-
-
-
-GETENROLLED
 export const UserEndPoint =(type:string,params:any)=> {
   switch (type) {
     case COURSEDETAILS:
