@@ -56,7 +56,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "mySummerCamp:build",
-            "port": 5000
+            "port": 4200
           },
           "configurations": {
             "production": {
@@ -110,7 +110,7 @@
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
             "devServerTarget": "mySummerCamp:serve"
-           }
+          }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
