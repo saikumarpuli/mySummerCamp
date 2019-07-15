@@ -8,6 +8,7 @@ export default class TrainingCourseDao {
           let page = pageData;      // page number
           let pages = Math.ceil(data.count / limit);
           let offset = limit * (page - 1);
+          //Query starts
           models.trainingcourse.findAndCountAll({
             limit: limit,
             offset: offset,
@@ -19,6 +20,7 @@ export default class TrainingCourseDao {
           }).catch(err =>{
             reject(err);
           });
+        //  Query ends
         }).catch(error=>{
         reject(error);
       })
