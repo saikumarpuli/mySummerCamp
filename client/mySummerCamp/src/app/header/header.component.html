@@ -1,26 +1,20 @@
 <!----Header part started-->
-<div class="container-fluid mt-5 pb-3  col col-lg-12 col-sm-12">
-
   <header>
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-expand-md navbar-light fixed-top color">
+    <nav class=" row navbar fixed-top color">
       <a class="navbar-brand col-lg-2"  routerLink="/" class="fa fa-home" aria-hidden="true"><b>MySummerCamp</b></a>
 
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item col-lg-4">
-            <a class="nav-link" routerLink="/courseDetails"><b>Add_Course</b></a>
-          </li>
-          <li class="nav-item col-lg-6">
-            <a class="nav-link " routerLink="/studentDetails"><b>Enrolled_Students</b></a>
-          </li>
-        </ul>
-        <form class="form-inline mt-2 mt-md-0">
+          <span class="nav-item col-lg-1">
+            <a class="nav-link" routerLink="/courseDetails" class="fa" ><b>Add Course</b></a>
+          </span>
+          <span class="nav-item col-lg">
+            <a class="nav-link " routerLink="/studentDetails" class="fa"><b>Enrolled Students</b></a>
+          </span>
+         <form class="form-inline mt-2 mt-md-0 col-lg-4 align-right">
           <input class="form-control mr-sm-2" type="text" placeholder="Search here" aria-label="Search">
           <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
         </form>
-      </div>
+
     </nav>
   </header>
-</div>
 <!----Header part ended-->
