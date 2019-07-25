@@ -14,15 +14,15 @@
 
 
 <div  class="container col col-lg-12 col-sm-12 col-md-12 col-sm-12 pb-3">
-  <button (click)="get()"  class="btn btn-primary ">Click To Register</button>
-  <button (click)="getRegisterd()"  type="button" class="btn btn-primary  ml-5" data-toggle="modal" data-target="#myModal">Enrolled Students Details</button>
+  <button (click)="get()"  class="btn "style="background-color:  #8fd19e">Click To Register</button>
+  <button (click)="getRegisterd()"  type="button" class="btn  ml-5" style="background-color:  #8fd19e" data-toggle="modal" data-target="#myModal">Enrolled Students Details</button>
 
 </div>
 
 <div *ngIf ="id" class="jumbotron col col-lg-12 col-sm-12">
      <div class="form-group">
          <ng-flash-message></ng-flash-message>
-       <h3><b style="color: #3D9970">Course Registration Form</b></h3>
+       <h3><b style="color:  #8fd19e">Course Registration Form</b></h3>
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
           <div class="form-group">
             <label>First Name</label>
@@ -54,8 +54,8 @@
           </div>
 
           <div class="form-group pb-md-4 pb-xl-4 pb-lg-4 pb-sm-4">
-            <button class="btn btn-primary">Register</button>
-            <button class="btn btn-primary ml-3" type="reset">Reset </button>
+            <button class="btn "style="background-color:  #8fd19e">Register</button>
+            <button class="btn ml-3" style="background-color:  #8fd19e" type="reset">Reset </button>
           </div>
         </form>
       </div>
@@ -66,7 +66,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-       <h2  class="modal-title" id="exampleModalLongTitle" ><b  style="color: #3D9970">Enrolled Students Details</b></h2>
+       <h2  class="modal-title" id="exampleModalLongTitle" ><b  style="color:  #8fd19e">Enrolled Students Details</b></h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -95,7 +95,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn" style="background-color:  #8fd19e" data-dismiss="modal">Close</button>
        </div>
     </div>
   </div>
