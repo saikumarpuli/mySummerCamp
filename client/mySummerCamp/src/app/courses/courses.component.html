@@ -1,12 +1,12 @@
 <div class="container col col-lg-12 col-sm-12">
 
-<!--  <div class="row mt-2"><h3><b class="ml-3" style="color:  #8fd19e">Search</b></h3>
-    <input class="form-control col-2 ml-2" type="text"  name="search" [(ngModel)]="search.name" placeholder="search by name">
-    <input class="form-control col-2 ml-2" type="number" min="0" name="search" [(ngModel)]="search.duration" placeholder="search by duration">
+  <div class="row mt-2"><h3><b class="ml-3" style="color:  #8fd19e">Search</b></h3>
+    <input class="form-control col-2 ml-2" type="text"  name="search" [(ngModel)]="search.name" (input)="getdata()" placeholder="search by Course name">
+   <!-- <input class="form-control col-2 ml-2" type="number" min="0" name="search" [(ngModel)]="search.duration" placeholder="search by duration">
     <input class="form-control col-2 ml-2" type="number" min="0" name="search" [(ngModel)]="search.noOfDays" placeholder="search by noOfDays">
     <input class="form-control col-2 ml-2" type="text" name="search" [(ngModel)]="search.Coach" placeholder="search by Coach">
     <input class="form-control col-2 ml-2" type="number" min="0" name="search" [(ngModel)]="search.fee" placeholder="search by fee">
-  </div>-->
+-->  </div>
   <h2 class="mt-3"><b style="color:  #8fd19e">Course Details</b></h2>
    <table class="table table-hover">
     <thead id="thead">
@@ -19,7 +19,7 @@
    </tr>
     </thead>
   <tbody>
-      <tr  *ngFor="let course of courses | paginate: { itemsPerPage: itemsperpage, currentPage: pageno,totalItems:total }" (click)="navigate(course)">
+      <tr  *ngFor="let course of courses |filterBy:search| paginate: { itemsPerPage: itemsperpage, currentPage: pageno,totalItems:total }" (click)="navigate(course)">
       <td>{{course.name}}</td>
       <td>{{course.duration}}</td>
       <td>{{course.noOfDays}}</td>

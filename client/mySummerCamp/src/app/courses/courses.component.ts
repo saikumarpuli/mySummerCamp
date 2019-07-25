@@ -9,11 +9,11 @@ import {CourseService} from "../course.service"
 })
 export class CoursesComponent implements OnInit {
    public courses: any;
-   search : any={name:'',duration:'',noOfDays:'',Coach:'',fee:''};
+   search : any={name:''};
   total: any;
   itemsperpage: any=4;
    pageno: any=1;
-   page: { pageNo: any; itemsPerPage: any };
+   page: { pageNo: any; itemsPerPage: any; name:any };
 
   constructor(private router: Router,private service:CourseService) { }
  ngOnInit() {
@@ -25,7 +25,8 @@ export class CoursesComponent implements OnInit {
     this.pageno = pageNumber;
     this.page = {
       pageNo: this.pageno,
-      itemsPerPage: this.itemsperpage
+      itemsPerPage: this.itemsperpage,
+      name:this.search.name
     };
     this.service.getCourseDetails(this.page).subscribe((response) => {
       this.courses = response.rows;
@@ -34,7 +35,8 @@ export class CoursesComponent implements OnInit {
   getdata() {
     this.page = {
       pageNo: this.pageno,
-      itemsPerPage: this.itemsperpage
+      itemsPerPage: this.itemsperpage,
+      name:this.search.name
     };
     this.service.getCourseDetails(this.page).subscribe((response) => {
        this.courses = response.rows;

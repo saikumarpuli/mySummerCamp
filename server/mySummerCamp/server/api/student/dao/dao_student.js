@@ -11,15 +11,11 @@ export default class StudentDao {
         .catch(error=>reject(error))
     })
   }
-
-
   static getandcountAll(pageData,limit,course,firstName,lastName,email){
      return new Promise((resolve,reject)=>{
-
           let page = pageData;      // page number
            let offset = limit * (page - 1);
           models.student.findAndCountAll({
-
             where:{
               course: {[Op.iLike]: '%' + course + '%'},
               firstName: {[Op.iLike]: '%' + firstName + '%'},

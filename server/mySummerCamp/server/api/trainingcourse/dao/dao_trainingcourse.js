@@ -1,12 +1,16 @@
 import models from '../../../models'
 import Promise from 'bluebird'
+var Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 export default class TrainingCourseDao {
-  static getAll(pageData,limit){
+  static getAll(pageData,limit,course){
     return new Promise((resolve,reject)=>{
-
       let page = pageData;      // page number
       let offset = limit * (page - 1);
       models.trainingcourse.findAndCountAll({
+        where:{
+          name: {[Op.iLike]: '%' + course + '%'}
+          },
         limit: limit,
         offset: offset,
         order: [
