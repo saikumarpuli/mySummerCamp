@@ -1,29 +1,22 @@
 import models from '../../../models'
 import Promise from 'bluebird'
 export default class TrainingCourseDao {
-  static getAll(pageData,limit) {
-    return new Promise((resolve, reject) => {
-      models.trainingcourse.findAndCountAll()
-        .then(data=>{
-          let page = pageData;      // page number
-          let pages = Math.ceil(data.count / limit);
-          let offset = limit * (page - 1);
-          //Query starts
-          models.trainingcourse.findAndCountAll({
-            limit: limit,
-            offset: offset,
-            order: [
-              ['createdAt', 'DESC']
-            ]
-          }).then(result =>{
-            resolve(result);
-          }).catch(err =>{
-            reject(err);
-          });
-        //  Query ends
-        }).catch(error=>{
-        reject(error);
-      })
+  static getAll(pageData,limit){
+    return new Promise((resolve,reject)=>{
+
+      let page = pageData;      // page number
+      let offset = limit * (page - 1);
+      models.trainingcourse.findAndCountAll({
+        limit: limit,
+        offset: offset,
+        order: [
+          ['createdAt', 'DESC']
+        ],
+      }).then(result =>{
+        resolve(result);
+      }).catch(err =>{
+        reject(err);
+      });
     })
   }
 
