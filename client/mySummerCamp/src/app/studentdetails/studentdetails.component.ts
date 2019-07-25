@@ -13,14 +13,10 @@ export class StudentdetailsComponent implements OnInit {
    page: { pageNo: any; itemsPerPage: any;course:any,firstName:any,lastName:any,email:any};
   search: any = {course: '', firstName: '', lastName: '', email: ''};
 
-  constructor(private service: StudentService) {
-  }
-
-
+  constructor(private service: StudentService) {}
   ngOnInit() {
     this.getdata()
   }
-
   getPagination(pageNumber) {
     this.pageno = pageNumber;
     this.page = {
@@ -49,7 +45,5 @@ export class StudentdetailsComponent implements OnInit {
       this.students = response.rows;
       this.total = response.count;
     })
-
   }
-
 }
