@@ -11,7 +11,7 @@ import { of } from "rxjs";
 export class CourseService {
   constructor(private http: HttpClient, private queryApi:QueryApi) { }
   getCourseDetails(params):Observable<any>{
-       return this.queryApi.doGet('COURSEDETAILS',params)
+       return this.queryApi.doGet('POSTCOURSE',params)
       .pipe(
         catchError(err => of([err]))
       );
