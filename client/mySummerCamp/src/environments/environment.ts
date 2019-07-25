@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // API_ROOT: 'https://mysummercampserver.herokuapp.com/'
-  API_ROOT: 'http://localhost:3333/'
+  API_ROOT: 'http://192.168.0.173:3333/'
 
 };
 
