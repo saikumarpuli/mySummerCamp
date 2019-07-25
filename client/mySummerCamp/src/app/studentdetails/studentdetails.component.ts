@@ -31,9 +31,6 @@ export class StudentdetailsComponent implements OnInit {
       lastName:this.search.lastName,
       email:this.search.email
     };
-
-    console.log(this.page,"page1");
-    console.log(this.search,"search1")
     this.service.getStudentDetails(this.page).subscribe((response) => {
       this.students = response.rows;
       this.total = response.count;
@@ -48,8 +45,6 @@ export class StudentdetailsComponent implements OnInit {
       lastName:this.search.lastName,
       email:this.search.email
     };
-    console.log(this.page,"page");
-    console.log(this.search,"search")
     this.service.getStudentDetails(this.page).subscribe((response) => {
       this.students = response.rows;
       this.total = response.count;
