@@ -28,9 +28,9 @@
             <label>First Name</label>
             <input type="text" placeholder="First name" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
             <div *ngIf="submitted && !!f.firstName.errors" class="invalid-feedback">
-              <div *ngIf="f.firstName.errors.required">First Name is required</div>
-              <div *ngIf="f.firstName.errors.pattern"><p>First Name contains only alphabets</p></div>
-              <div *ngIf="f.firstName.errors.minlength"><p>First Name must be at least 3 characters</p></div>
+              <div *ngIf="!!f.firstName.errors.required">First Name is required</div>
+              <div *ngIf="!!f.firstName.errors.pattern"><p>First Name contains only alphabets</p></div>
+              <div *ngIf="!!f.firstName.errors.minlength"><p>First Name must be at least 3 characters</p></div>
 
             </div>
           </div>
@@ -38,9 +38,9 @@
             <label>Last Name</label>
             <input type="text" placeholder="Last name" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
             <div *ngIf="submitted &&!! f.lastName.errors" class="invalid-feedback">
-              <div *ngIf="f.lastName.errors.required">Last Name is required</div>
-              <div *ngIf="f.lastName.errors.pattern"><p>Last Name contains only alphabets</p></div>
-              <div *ngIf="f.lastName.errors.minlength"><p>Last Name must be at least 3 characters</p></div>
+              <div *ngIf="!!f.lastName.errors.required">Last Name is required</div>
+              <div *ngIf="!!f.lastName.errors.pattern"><p>Last Name contains only alphabets</p></div>
+              <div *ngIf="!!f.lastName.errors.minlength"><p>Last Name must be at least 3 characters</p></div>
 
             </div>
           </div>
@@ -48,8 +48,8 @@
             <label>Email</label>
             <input type="text" placeholder="Email address" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
             <div *ngIf="submitted && !!f.email.errors" class="invalid-feedback">
-              <div *ngIf="f.email.errors.required">Email is required</div>
-              <div *ngIf="f.email.errors.pattern"><p>Email must be a valid email address</p></div>
+              <div *ngIf="!!f.email.errors.required">Email is required</div>
+              <div *ngIf="!!f.email.errors.pattern"><p>Email must be a valid email address</p></div>
              </div>
           </div>
 
